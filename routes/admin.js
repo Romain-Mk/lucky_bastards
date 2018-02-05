@@ -6,12 +6,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/account', function(req, res, next) {
-  res.send('user info');
+  res.send('user infos');
 });
 
 router.get('/stories/:id', function(req, res, next) {
   res.send('fiche story ' + req.params.id);
 });
-
 
 module.exports = router;
