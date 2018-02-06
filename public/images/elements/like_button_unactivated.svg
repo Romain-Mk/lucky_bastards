@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#E48770" offset="0%"></stop>
+            <stop stop-color="#E9614A" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-2" cx="25" cy="25" r="25"></circle>
+        <filter x="-7.0%" y="-5.0%" width="114.0%" height="114.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-de-profil-Story" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(2.000000, 1.000000)">
+            <g id="Fav-Button" transform="translate(0.166113, 0.132890)">
+                <g id="Base">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                    <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                </g>
+            </g>
+            <g id="Icons/Heart-Icon" transform="translate(15.000000, 15.000000)" fill="#FFFFFF">
+                <g id="Heart-Icon">
+                    <path d="M13.5974608,17.9295228 C13.0192793,18.4640466 12.5626841,18.8619844 12.2910552,19.0918165 C11.3332367,19.8986476 9.94534894,19.8986476 8.98753047,19.0918165 C8.71460811,18.8632977 8.25930635,18.4640466 7.68112485,17.9295228 C6.72136943,17.0417143 5.76032055,16.0908662 4.85747785,15.1032449 C3.92362505,14.0979272 3.06170389,13.0261514 2.27829685,11.8961024 C1.10482932,10.3855123 0.411474839,8.54833929 0.29023206,6.62835119 C0.223819797,4.84293394 0.899755974,3.11142584 2.15283017,1.85703725 C4.47240306,-0.4440005 8.12258403,-0.613466096 10.6392928,1.4630394 C13.1550182,-0.616493541 16.807434,-0.446924194 19.1257555,1.85703725 C20.3724037,3.10790277 21.0464497,4.83150583 20.9844732,6.60996463 C20.869883,8.53370138 20.1779018,10.3756865 19.0015823,11.8882225 C18.2161795,13.021393 17.3516419,14.0958307 16.4146404,15.1032449 C15.5143847,16.0882395 14.5572162,17.0417143 13.5974608,17.9295228 Z M11.9767417,3.72590038 L10.6392928,5.06811971 L9.3018439,3.72590038 C7.82054703,2.25570636 5.45404062,2.25570636 3.97274375,3.72590038 C3.22085258,4.47572255 2.82071861,5.51626752 2.87329347,6.58501143 C2.82284811,10.5000367 10.6341189,17.0679808 10.6341189,17.0679808 C10.6341189,17.0679808 18.4466832,10.50135 18.3949444,6.58238478 C18.447948,5.51511061 18.0492933,4.47569655 17.2993745,3.72590038 C15.8250973,2.25236531 13.4561929,2.25236531 11.9767417,3.72590038 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

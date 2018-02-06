@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="209px" height="36px" viewBox="0 0 209 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Button</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-0.3%" y="-0.5%" width="100.5%" height="101.4%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="203" height="30" rx="15"></rect>
+        <filter x="-1.7%" y="-8.3%" width="103.4%" height="123.3%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-de-profil-User" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Profile-#2" filter="url(#filter-1)" transform="translate(-576.000000, -300.000000)">
+            <g id="Button" transform="translate(579.000000, 301.000000)">
+                <g id="Group-25">
+                    <g id="Add-as-a-favorite-author-button">
+                        <g id="Group-6">
+                            <g id="Base">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                                <use fill="#6FB8EF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                            </g>
+                            <g id="Group-2" transform="translate(15.000000, 8.000000)" fill="#FFFFFF">
+                                <text id="ADD-AS-FAVORITE-AUTH" font-family="Roboto-Bold, Roboto" font-size="12" font-weight="bold">
+                                    <tspan x="18" y="11">ADD AS FAVORITE AUTHOR</tspan>
+                                </text>
+                                <path d="M10.5,12.0005 C8.567,12.0005 7,10.4335 7,8.5005 C7,6.5675 8.567,5 10.5,5 C12.433,5 14,6.5675 14,8.5005 C14,10.4335 12.433,12.0005 10.5,12.0005 L10.5,12.0005 Z M12,8.0005 L11,8.0005 L11,7.0005 C11,6.7245 10.7765,6.5005 10.5,6.5005 C10.224,6.5005 10,6.7245 10,7.0005 L10,8.0005 L9,8.0005 C8.724,8.0005 8.5,8.2245 8.5,8.5005 C8.5,8.7765 8.724,9.0005 9,9.0005 L10,9.0005 L10,10.0005 C10,10.2765 10.224,10.5005 10.5,10.5005 C10.7765,10.5005 11,10.2765 11,10.0005 L11,9.0005 L12,9.0005 C12.276,9.0005 12.5,8.7765 12.5,8.5005 C12.5,8.2245 12.276,8.0005 12,8.0005 L12,8.0005 Z M6.03,7.998 C6.02,7.998 6.01,8.0005 6,8.0005 C4.339,8.0005 3,5.7955 3,3.5295 C3,1.421 4.2525,0 6,0 C7.7475,0 9,1.421 9,3.5295 C9,3.782 8.981,4.033 8.9495,4.281 C7.38,4.8575 6.221,6.2795 6.03,7.998 L6.03,7.998 Z M6,9.0005 C6.01,9.0005 6.0195,8.998 6.029,8.998 C6.1615,10.2 6.766,11.259 7.6545,11.985 C7.179,11.9955 6.642,12.0005 6,12.0005 C3.9755,12.0005 2.907,11.9595 1.9985,11.8085 C0.7255,11.596 0,11.1425 0,10.38 C0,9.373 1.296,7.969 3.098,7.155 C3.826,8.2595 4.8545,9.0005 6,9.0005 L6,9.0005 Z" id="User-Plus-Icon"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="25" cy="25" r="25"></circle>
+        <filter x="-7.0%" y="-5.0%" width="114.0%" height="114.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-de-profil-Story" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-5" transform="translate(2.000000, 1.000000)">
+            <g id="Base">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FF4A5D" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <path d="M21.7885375,24.068323 L27.9935771,24.068323 C28.0499012,24.3944099 28.0968379,24.7204969 28.0968379,25.1490683 C28.0968379,28.8757764 25.5810277,31.5217391 21.7885375,31.5217391 C18.1556324,31.5217391 15.2173913,28.6055901 15.2173913,25 C15.2173913,21.3944099 18.1556324,18.4782609 21.7885375,18.4782609 C23.562747,18.4782609 25.0459486,19.121118 26.1912055,20.1832298 L24.4076087,21.8881988 C23.9194664,21.4223602 23.0652174,20.8819876 21.7885375,20.8819876 C19.5449605,20.8819876 17.7144269,22.7267081 17.7144269,25 C17.7144269,27.2732919 19.5449605,29.1180124 21.7885375,29.1180124 C24.388834,29.1180124 25.3651186,27.2639752 25.5153162,26.3043478 L21.7885375,26.3043478 L21.7885375,24.068323 Z M35.8695652,24.068323 L35.8695652,25.931677 L33.9920949,25.931677 L33.9920949,27.7950311 L32.1146245,27.7950311 L32.1146245,25.931677 L30.2371542,25.931677 L30.2371542,24.068323 L32.1146245,24.068323 L32.1146245,22.2049689 L33.9920949,22.2049689 L33.9920949,24.068323 L35.8695652,24.068323 Z" id="Google+-Icon" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

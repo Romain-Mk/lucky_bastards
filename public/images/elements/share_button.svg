@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="39px" height="39px" viewBox="0 0 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 25</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="17.5" cy="17.5" r="17.5"></circle>
+        <filter x="-10.0%" y="-7.1%" width="120.0%" height="120.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="share_button" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1.000000, 1.000000)">
+        <g id="Group-25" transform="translate(0.970588, 0.000000)">
+            <g id="Group">
+                <g id="Group-39">
+                    <g id="Fav-Button">
+                        <g id="Base">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#6FB8EF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                    <g id="Icons/Jump-Right-Up-Icon" transform="translate(9.264706, 11.323529)" fill="#FFFFFF">
+                        <path d="M9.27787513,11.814499 C9.27787513,12.3672933 9.62892359,12.5186168 10.0602705,12.1552344 L16.146483,6.84243938 C16.3509238,6.68412672 16.4705882,6.4401191 16.4705882,6.18155691 C16.4705882,5.92299473 16.3509238,5.67898711 16.146483,5.52067445 L10.0602705,0.19861472 C9.62789412,-0.166826518 9.27787513,-0.0134441391 9.27787513,0.539350072 L9.27787513,4.11655656 L8.24840753,4.11655656 C4.31584126,4.11655656 0.952570591,7.37567476 0.133114376,10.8962636 C0.0723876807,11.1576215 0.0293952316,11.4227846 0.00443092467,11.6899402 C-0.0264531036,11.9647932 0.107377685,12.0255285 0.304005998,11.831999 C0.304005998,11.831999 0.359597249,11.7825873 0.406952759,11.7290579 C2.48879236,9.61836233 5.28904107,8.3688111 8.25046646,8.22905726 L9.27993407,8.22905726 L9.27787513,11.814499 L9.27787513,11.814499 Z" id="Jump-Right-Up-Icon"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

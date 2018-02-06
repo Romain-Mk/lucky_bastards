@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+}
+
+/* STORY HEADER */
+
+#profile_page_header {
+  background-image: url("/images/volkswagen-569315_1920.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_pic_profile {
+  border-radius: 50%;
+  width: 10%;
+}
+
+.user_name_profile {
+  font-size: 25px;
+  color : white;
+  font-family: 'Sedgwick Ave Display', 'Open sans', cursive, sans-serif;
+  margin-top: 0.5%;
+}
+
+.social_media_profile {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+  width: 20%;
+}
+
+.social_media_icons {
+  width: 35px;
+  height: 35px;
+}
+
+#user_stories_navbar {
+  display: flex;
+  justify-content: space-around;
+  font-family: 'Roboto condensed', 'Open sans', cursive, sans-serif;
+  color: #8493A8;
+  border-width: thin;
+  border-color: #ECEFF4;
+  border-style: solid;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+.navbar_stories {
+  display: flex;
+}
+
+.navbar_pictures {
+  display: flex;
+}
+
+span {
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+}
+
+/* NEWSFEED */
+
+#user_stories_body {
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 2%;
+  display: flex;
+  justify-content: space-between;
+  font-family: Open sans, cursive, sans-serif;
+}
+
+#card {
+  border-width: thin;
+  border-color: #D8D8D8;
+  border-style: solid;
+  border-top: 0;
+  border-radius: 1%;
+  width: 48%;
+  height: 600px;
+}
+
+#cardPic {
+  background-image: url("/images/car-1093927_1920.jpg");
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 300px;
+}
+
+#cardIcons {
+  display: flex;
+  align-items: center;
+  transform: translate(0px, -45px);
+}
+
+.user_pic {
+  border-radius: 50%;
+  max-width: 15%;
+  margin-left: 2%;
+}
+
+#name_date {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1%;
+}
+
+.user_name {
+  margin: 0;
+  font-family: 'Sedgwick Ave Display', cursive, sans-serif;
+  color: white;
+}
+
+.date {
+  margin: 0;
+  font-size: 14px;
+}
+
+#save_share_icons {
+  margin-left: 50%;
+}
+
+.save {
+  max-width: 50%;
+}
+
+.share {
+  max-width: 50%;
+}
+
+#card_bottom {
+  width: 100%;
+  height: 300px;
+  transform: translate(0px, -92px);
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#cardText {
+  margin-top: 8%;
+  width: 95%;
+}
+
+#cardTags {
+  width: 95%;
+}

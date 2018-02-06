@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Twitter</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="20" cy="20" r="20"></circle>
+        <filter x="-8.8%" y="-6.3%" width="117.5%" height="117.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-de-profil-User" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-8" transform="translate(-59.000000, 1.000000)">
+            <g id="Group-7">
+                <g id="Twitter" transform="translate(61.000000, 0.000000)">
+                    <g id="Base">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#1CC9E4" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <path d="M25.5330234,17.5959846 C25.538244,17.7202703 25.5399842,17.844556 25.5399842,17.9631923 C25.5399842,21.7369576 22.6692045,26.0869565 17.4189666,26.0869565 C15.8629742,26.0861354 14.3415022,25.6402105 13.0434783,24.8045542 C13.2694318,24.8291876 13.4965455,24.8423872 13.7239035,24.8440997 C15.0151933,24.8441227 16.2671326,24.4112345 17.2693078,23.6181909 C16.0350655,23.5885889 14.9594237,22.7915237 14.6009734,21.6409187 C14.7782581,21.6750506 14.9585656,21.6920809 15.1392809,21.6917628 C15.3943101,21.6926436 15.6481866,21.6584088 15.8933754,21.5900745 C14.5454606,21.3048584 13.5885188,20.1369477 13.6020883,18.7936467 L13.6020883,18.7597506 C13.998554,18.9762601 14.4420423,19.0982262 14.8962304,19.1156596 C13.6376972,18.2555759 13.255395,16.6054134 14.0127797,15.3023488 C15.4406658,17.0760205 17.5850448,18.1632666 19.895877,18.2852052 C19.8466918,18.0719722 19.8219838,17.8540772 19.8222077,17.6355301 C19.8015708,16.0800398 21.0795756,14.8027587 22.6767454,14.7826087 C23.4698283,14.7829709 24.2259632,15.1091213 24.7592064,15.6808552 C25.4009743,15.5575446 26.0151457,15.3241787 26.5730937,14.9916346 C26.3642568,15.6479569 25.917764,16.2080707 25.3166562,16.5678031 C25.883521,16.5017054 26.4365943,16.3511834 26.9565217,16.1215045 C26.5753665,16.6911746 26.0933877,17.1904151 25.5330234,17.5959846 L25.5330234,17.5959846 Z" id="Twitter-Icon" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

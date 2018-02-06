@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Send by email</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-de-profil-Story" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Send-by-email">
+            <g id="Group-2">
+                <circle id="Oval" fill="#BD10E0" cx="25" cy="25" r="25"></circle>
+                <path d="M35.5,34 L14.5,34 C13.672,34 13,33.328 13,32.5 L13,16.5 C13,15.671 13.672,15 14.5,15 L35.5,15 C36.329,15 37,15.671 37,16.5 L37,32.5 C37,33.328 36.329,34 35.5,34 L35.5,34 Z M34,31 L34,19 L25.731,27.5837221 C25.528,27.7952307 25.261,27.8958009 24.995,27.8895801 C24.729,27.8958009 24.461,27.7952307 24.258,27.5837221 L16,19.0103681 L16,31 L34,31 L34,31 Z M32,18 L17,18 L24.5,26 L32,18 L32,18 Z" id="Mail-Icon" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

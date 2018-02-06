@@ -6,19 +6,19 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/signup', function(req, res, next) {
-  res.send('sign up');
+  res.render('signup');
 });
 
 router.get('/login', function(req, res, next) {
-  res.send('login');
+  res.render('login');
 });
 
 router.get('/stories/:id', function(req, res, next) {
-  res.send('fiche story ' + req.params.id);
+  res.render('story');
 });
 
 router.get('/authors/:id', function(req, res, next) {
-  res.send('fiche author ' + req.params.id);
+  res.render('author');
 });
 
 module.exports = router;
