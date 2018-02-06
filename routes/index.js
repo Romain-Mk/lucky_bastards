@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
 
 
 var userSchema = mongoose.Schema({
@@ -34,9 +33,7 @@ router.route('/signup')
      username: req.body.username,
      email: req.body.email,
      password: req.body.password
-      // bcrypt.hash(req.body.password, 10, function(err, hash) {
-      //
-      // })
+
     });
 
     newUser.save(function (error, user) {
@@ -55,11 +52,14 @@ router.route('/login')
 
   .post(function(req, res, next) {
 
-    userModel.find (
+    userModel.findOne (
       { email: req.body.email, password:req.body.password },
       function (err, users) {
-      console.log(req.body)
-      res.redirect('/');
+          if(users.length > 0) {
+            res.redirect('/')
+          } else {
+            res.redirect('login');
+          }
     })
 
 });
@@ -74,4 +74,3 @@ router.get('/authors/:id', function(req, res, next) {
 });
 
 module.exports = router;
-module.exports = mongoose.model('users', userModel);
