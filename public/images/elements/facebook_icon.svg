@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="25" cy="25" r="25"></circle>
+        <filter x="-7.0%" y="-5.0%" width="114.0%" height="114.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-de-profil-Story" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4" transform="translate(2.000000, 1.000000)">
+            <g id="Base">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#5F6EDC" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <path d="M22.464855,33.6956522 L22.464855,25.7424443 L19.5652174,25.7424443 L19.5652174,22.7002336 L22.4655537,22.7002336 L22.4655537,20.4040889 C22.4655537,17.7602629 24.1913621,16.3043478 26.7451393,16.3043478 C27.9678781,16.3043478 29.0410933,16.3840248 29.3478261,16.4202416 L29.3478261,19.2234214 L27.5311857,19.2234214 C26.1421544,19.2234214 25.8822351,19.8318635 25.8822351,20.73004 L25.8822351,22.7002336 L29.2059884,22.7002336 L28.7741869,25.7424443 L25.8822351,25.7424443 L25.8822351,33.6956522 L22.4585666,33.6956522 L22.464855,33.6956522 Z" id="Facebook-Icon" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

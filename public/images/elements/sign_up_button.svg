@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="103px" height="32px" viewBox="0 0 103 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 43</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Ghost-Button">
+            <g id="sign_up_button">
+                <g id="Group-40">
+                    <g id="Group-43">
+                        <rect id="Base" stroke="#FFFFFF" stroke-width="2" opacity="0.3" x="1" y="1" width="100.857143" height="29.6097561" rx="14.804878"></rect>
+                        <text id="Sign-up" font-family="OpenSans, Open Sans" font-size="16" font-weight="normal" fill="#FFFFFF">
+                            <tspan x="23.8309152" y="20">Sign up</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

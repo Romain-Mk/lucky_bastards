@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="535px" height="153px" viewBox="0 0 535 153" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="535" height="153"></rect>
+    </defs>
+    <g id="Create-publication" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-6">
+            <g id="Rectangle">
+                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <rect stroke="#979797" stroke-width="1" x="0.5" y="0.5" width="534" height="152"></rect>
+            </g>
+            <g id="Icons/Plus-Icon" transform="translate(240.000000, 50.000000)" fill="#888888" fill-rule="nonzero">
+                <path d="M23.625,30.375 L3.375,30.375 C1.51103897,30.375 0,28.863961 0,27 C0,25.136039 1.51103897,23.625 3.375,23.625 L23.625,23.625 L23.625,3.375 C23.625,1.51103897 25.136039,0 27,0 C28.863961,0 30.375,1.51103897 30.375,3.375 L30.375,23.625 L50.625,23.625 C52.488961,23.625 54,25.136039 54,27 C54,28.863961 52.488961,30.375 50.625,30.375 L30.375,30.375 L30.375,50.625 C30.375,52.488961 28.863961,54 27,54 C25.136039,54 23.625,52.488961 23.625,50.625 L23.625,30.375 L23.625,30.375 Z" id="Plus-Icon"></path>
+            </g>
+        </g>
+    </g>
+</svg>

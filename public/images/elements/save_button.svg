@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Fav Button</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#0EB571" offset="0%"></stop>
+            <stop stop-color="#0ACF74" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-2" cx="25" cy="25" r="25"></circle>
+        <filter x="-7.0%" y="-5.0%" width="114.0%" height="114.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-de-profil-Story" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Fav-Button" transform="translate(2.166113, 1.132890)">
+            <g id="Group">
+                <g id="Group-2">
+                    <g id="Base">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                        <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    </g>
+                    <path d="M28.080312,20.8002311 L26.0002889,20.8002311 C25.4259064,20.8002311 24.9602773,20.3346021 24.9602773,19.7602196 C24.9602773,19.185837 25.4259064,18.720208 26.0002889,18.720208 L28.080312,18.720208 L28.080312,16.6401849 C28.080312,16.0658024 28.545941,15.6001733 29.1203236,15.6001733 C29.6947061,15.6001733 30.1603351,16.0658024 30.1603351,16.6401849 L30.1603351,18.720208 L32.2403582,18.720208 C32.8147407,18.720208 33.2803698,19.185837 33.2803698,19.7602196 C33.2803698,20.3346021 32.8147407,20.8002311 32.2403582,20.8002311 L30.1603351,20.8002311 L30.1603351,22.8802542 C30.1603351,23.4546367 29.6947061,23.9202658 29.1203236,23.9202658 C28.545941,23.9202658 28.080312,23.4546367 28.080312,22.8802542 L28.080312,20.8002311 L28.080312,20.8002311 Z M28.0943783,29.7823057 L24.4522885,27.6139888 C24.1244569,27.4188144 23.7160747,27.4188144 23.3882431,27.6139888 L19.7608511,29.7823062 L19.7602196,17.6804942 C19.7602196,17.6795926 26.0002889,17.6801964 26.0002889,17.6801964 C26.5746714,17.6801964 27.0403004,17.2145674 27.0403004,16.6401849 C27.0403004,16.0658024 26.5746714,15.6001733 26.0002889,15.6001733 L19.760851,15.6001733 C18.6104984,15.6001733 17.6801964,16.5311799 17.6801964,17.6804942 L17.6801964,30.5631628 C17.6801964,31.9460589 18.9592148,32.6715497 20.1461525,31.9649068 L23.9202658,29.7157403 L27.694379,31.9649068 C28.8733882,32.6668295 30.1603351,31.944884 30.1603351,30.5635641 L30.1603351,26.0002889 C30.1603351,25.4259064 29.6947061,24.9602773 29.1203236,24.9602773 C28.545941,24.9602773 28.080312,25.4259064 28.080312,26.0002889 L28.0943783,29.7823057 L28.0943783,29.7823057 Z" id="Ribbon-Plus-Icon" fill="#FFFFFF" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

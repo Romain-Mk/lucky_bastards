@@ -2,15 +2,15 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.send('admin liste user stories');
+  res.render('admin/index');
 });
 
 router.get('/account', function(req, res, next) {
-  res.send('user infos');
+  res.render('admin/account');
 });
 
 router.get('/stories/:id', function(req, res, next) {
-  res.send('fiche story ' + req.params.id);
+  res.render('admin/newstory');
 });
 
 module.exports = router;

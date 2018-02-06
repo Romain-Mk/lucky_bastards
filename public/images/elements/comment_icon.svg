@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="20px" viewBox="0 0 26 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Bubble Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-de-profil-Story" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Info" transform="translate(-1069.000000, -21.000000)" fill="#FFFFFF">
+            <path d="M1079.48556,38.10156 C1077.58519,39.56232 1075.12465,40.52748 1072.39971,40.74336 C1073.72571,39.69924 1074.59587,38.26284 1074.74782,36.6576 C1071.70278,35.12712 1069.71429,32.64912 1069.71429,29.84184 C1069.71429,25.19076 1075.15706,21.42 1081.87013,21.42 C1088.58319,21.42 1094.02597,25.19076 1094.02597,29.84184 C1094.02597,34.4946 1088.58319,38.26536 1081.87013,38.26536 C1081.05366,38.26536 1080.25644,38.2074 1079.48556,38.10156 Z" id="Bubble-Icon"></path>
+        </g>
+    </g>
+</svg>
