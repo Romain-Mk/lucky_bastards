@@ -10,9 +10,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var admin = require('./routes/admin');
 
-
-
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
