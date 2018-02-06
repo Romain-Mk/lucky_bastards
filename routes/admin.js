@@ -10,7 +10,7 @@ router.get('/account', function(req, res, next) {
 });
 
 router.get('/stories/:id', function(req, res, next) {
-  res.render('admin/newstory');
+  res.render('admin/story');
 });
 
 module.exports = router;
