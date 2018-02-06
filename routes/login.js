@@ -14,27 +14,22 @@ var userSchema = mongoose.Schema({
 
 var userModel = mongoose.model('users', userSchema);
 
-router.route('/')
 
+router.route('/')
   .get(function(req, res, next) {
-    res.render('signup');
+    res.render('login');
   })
 
   .post(function(req, res, next) {
 
-    var newUser = new userModel ({
-     username: req.body.username,
-     email: req.body.email,
-     password: req.body.password
-    });
-
-    newUser.save(function (error, user) {
-      if (error) throw (error);
-      res.redirect('/');
-    });
+    userModel.find (
+      { email: req.body.email, password:req.body.password },
+      function (err, users) {
+      console.log(req.body)
+      res.render('index');
+    })
 
   });
-
 
 
 module.exports = router;
