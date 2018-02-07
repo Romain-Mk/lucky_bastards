@@ -1,18 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
 
-var userSchema = mongoose.Schema({
-  username: String,
-  email: String,
-  password: String,
-  picture: String,
-  url: Array,
-  about: String,
-  admin: Boolean
-}, {timestamps: true});
-
-var userModel = mongoose.model('users', userSchema);
+var User = require('../models/user');
 
 router.route('/')
 
@@ -22,10 +11,10 @@ router.route('/')
 
   .post(function(req, res, next) {
 
-    var newUser = new userModel ({
-     username: req.body.username,
-     email: req.body.email,
-     password: req.body.password
+    var newUser = new User ({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password
     });
 
     newUser.save(function (error, user) {
@@ -34,7 +23,5 @@ router.route('/')
     });
 
   });
-
-
 
 module.exports = router;
