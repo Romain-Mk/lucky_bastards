@@ -56,6 +56,15 @@ body {
   padding-bottom: 2%;
 }
 
+.logout {
+ color : white;
+ font-weight : bold;
+ padding : 5px;
+ border-radius: 10px;
+ text-decoration: none;
+}
+
+
 h1 {
   font-size: 100px;
   color : white;

@@ -23,10 +23,19 @@
       <div>
         <img id="logo" src="/images/elements/logo.svg" />
       </div>
-
+        <%
+        if(!isLogged) {
+        %>
         <div id="login_buttons">
           <img id="login" src="/images/elements/log_in_button.svg" />
           <img id="signup" src="/images/elements/sign_up_button.svg" />
         </div>
+        <%
+        } else {
+        %>
+          <a href="/logout" class="logout">Logout</a>
+        <%
+        }
+        %>
 
     </div>
