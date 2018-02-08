@@ -29,6 +29,8 @@
     <!-- NEWSFEED -->
     <div id="user_stories_body">
 
+        <% for (var i=0; i<storyList.length; i++) { %>
+
         <div id="card">
 
           <div id="cardPic"></div>
@@ -48,8 +50,8 @@
           <div id="card_bottom">
 
             <div id="cardText">
-              <h3>Titre de l'article</h3>
-              <p>Il était une fois bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+              <h3><%=storyList[i].title%></h3>
+              <p><%=storyList[i].text%></p>
               <img src="/images/elements/read_more_button.svg" class="read_more" />
             </div>
 
@@ -62,6 +64,8 @@
           </div>
 
         </div>
+
+        <% } %>
 
         <div id="card">
 
