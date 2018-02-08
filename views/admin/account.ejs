@@ -18,6 +18,13 @@
     <!-- BODY -->
     <div id="admin_profile_info_body">
 
+      <form ref='uploadForm' encType="multipart/form-data" class="" action="/admin/account" method="post">
+       <input type="file" name="profilepic" value=""><br>
+       <input type="submit" name="" value="Ajouter photo de profil">
+     </form>
+
+     <!-- <img class="user_pic_profile" src="/images/profilepics/<%= user._id %>.jpg" alt="Photo user" /> -->
+
     </div>
 
 
