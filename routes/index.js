@@ -2,7 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.render('index');
+  if (req.session.userId == undefined) {
+    req.session.userId = false;
+  }
+  res.render('index', {isLogged : req.session.userId} );
 });
 
 router.get('/stories/:id', function(req, res, next) {
@@ -12,5 +15,12 @@ router.get('/stories/:id', function(req, res, next) {
 router.get('/authors/:id', function(req, res, next) {
   res.render('author');
 });
+
+router.get('/logout', function(req, res, next) {
+  req.session.userId = false;
+  res.redirect('/');
+});
+
+
 
 module.exports = router;

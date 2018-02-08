@@ -6,8 +6,8 @@ var User = require('../models/user');
 router.route('/')
 
   .get(function(req, res, next) {
-    res.render('login');
-  })
+  res.render('login');
+})
 
   .post(function(req, res, next) {
 
