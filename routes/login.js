@@ -21,15 +21,18 @@ router.route('/')
       if (typeof user !== 'undefined' && user.length > 0) {
 
         if (password === user[0].password) {
-          console.log("User connected!");
+          /*
+            on entre dans le tableau user (un seul tableau puisqu'on a validé par l'email
+            et on lui demande de nous envoyer l'objet
+            en position 0 => il ne peut y en avoir qu'un seul)
+          */
+          req.session.userId = user[0]._id;
           res.redirect('/');
         } else {
-          console.log("Email or password error");
           res.render('login');
         }
 
       } else {
-        console.log('User not exist');
         res.render('login');
       }
 
