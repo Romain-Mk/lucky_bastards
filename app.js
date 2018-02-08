@@ -4,13 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require("express-session");
 
 var db = require('./db/db');
 var index = require('./routes/index');
-var users = require('./routes/users');
+var signup = require('./routes/signup');
+var login = require('./routes/Login');
 var admin = require('./routes/admin');
 
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,10 +25,20 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// Définition des paramètres de la session : secret => aléatoire / maxAge => temps d'ouverture de la session
+app.use(session({
+  resave: true,
+  saveUninitialized: true,
+  secret: 'SOMERANDOMSECRETHERE',
+  cookie: { maxAge: 720000 }
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/signup', signup);
+app.use('/login', login);
 app.use('/admin', admin);
 
 // catch 404 and forward to error handler
