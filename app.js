@@ -26,6 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+
 // Définition des paramètres de la session : secret => aléatoire / maxAge => temps d'ouverture de la session
 app.use(session({
   resave: true,

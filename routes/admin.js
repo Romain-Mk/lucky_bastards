@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var fileUpload = require('express-fileupload');
+
 
 var log = false;
 
@@ -27,18 +29,18 @@ router.get('/account', function(req, res, next) {
 
 router.post('/account', function(req, res) {
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-   // var profilepic = req.files.profilepic;
+   var profilepic = req.files.profilepic;
    // Pour l'instant on nomme toutes les images enregistrées img.jpg, après on pourra utiliser req.session.user._id
    // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
    var fileName = 'img';
    // Use the mv() method to place the file somewhere on your server
-   req.files.img.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
-     if(err){
-    console.log(err);
-     }else{
-    res.render('admin/account');
-    console.log("uploaded");
-    }
+   profilepic.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
+    //  if(err){
+    // console.log(err);
+    //  }else{
+    // res.render('admin/account');
+    // console.log("uploaded");
+    // }
    });
  });
 
