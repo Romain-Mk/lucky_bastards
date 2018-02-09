@@ -4,16 +4,11 @@ var router = express.Router();
 var storyModel = require('../models/story');
 
 router.get('/', function(req, res, next) {
-  // find de la story storyList
-  storyModel.find({}, function(err, stories){
-    console.log("les stories sont: ", stories);
-    res.render('index', {storyList: stories});
+  // find all stories
+  storyModel.find({}, function(err, stories) {
+    res.render('index', {stories});
   })
 });
-
-// router.get('/', function(req, res, next) {
-//   res.render('index');
-// });
 
 router.get('/signup', function(req, res, next) {
   res.render('signup');
@@ -23,12 +18,19 @@ router.get('/login', function(req, res, next) {
   res.render('login');
 });
 
+//req.params.id = trouve moi l'élément dont l'id de la BDD correspond à celui qu'on te passe dans l'url
 router.get('/stories/:id', function(req, res, next) {
-  res.render('story');
+  storyModel.findOne({_id: req.params.id}, function (error, story) {
+    res.render('story', {story});
+  });
 });
 
 router.get('/authors/:id', function(req, res, next) {
-  res.render('author');
+  storyModel.find(
+    {title: req.body.title, text: req.body.text_zone},
+      function (error, stories) {
+        res.render('author', {stories, title: req.body.title, text: req.body.text_zone});
+      })
 });
 
 module.exports = router;

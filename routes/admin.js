@@ -6,45 +6,46 @@ var storyModel = require('../models/story');
 router.get('/', function(req, res, next) {
   // find de la story storyList
   storyModel.find({}, function(err, stories){
-    res.render('admin/index', {storyList: stories});
-  })
+    res.render('admin/index', {stories});
+  });
 });
 
 router.get('/account', function(req, res, next) {
   res.render('admin/account');
 });
 
-router.post('/mystories/:id', function(req, res, next) {
-  console.log("ok route mystories/:id");
-  var newStory = new storyModel ({
-    tag: null,
-    category: null,
-    title: req.body.title,
-    text: req.body.text_zone,
-    img: null,
-    lang: null,
-    place: null,
-    authorId: null,
-    publish: null
+// New story action
+router.route('/newstory')
+
+  .get(function(req, res, next) {
+    res.render('admin/newstory');
+  })
+
+  .post(function(req, res, next) {
+
+    var newStory = new storyModel ({
+      tag: null,
+      category: null,
+      title: req.body.title,
+      text: req.body.text_zone,
+      img: null,
+      lang: null,
+      place: null,
+      authorId: null,
+      publish: null
+    });
+
+    newStory.save(function(err, story) {
+      res.redirect('/stories/' + story._id);
+    });
+
   });
-  newStory.save(
-    function(err, stories) {
-      storyModel.find(
-        {title: req.body.title, text: req.body.text_zone},
-          function (error, storyList) {
-            res.render('admin/story', {storyList, title: req.body.title, text: req.body.text_zone});
-          }
-      )
-    }
-  )
-});
+// End
 
-router.get('/newstory', function(req, res, next) {
-  res.render('admin/newstory');
-});
-
-router.get('/mystories/:id/edit', function(req, res, next) {
- res.render('admin/newstory');
+router.get('/stories/:id', function(req, res, next) {
+  storyModel.findOne({_id: req.params.id}, function (error, story) {
+    res.render('story', {story});
+  });
 });
 
 module.exports = router;

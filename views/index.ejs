@@ -33,12 +33,7 @@
 
   <div id="home_newsfeed" >
 
-
-
-
-
-
-    <% for (var i=0; i<storyList.length; i++) { %>
+    <% for (var i=0; i<stories.length; i++) { %>
 
     <div id="card">
 
@@ -59,9 +54,11 @@
       <div id="card_bottom">
 
         <div id="cardText">
-          <h3><%=storyList[i].title%></h3>
-          <p><%=storyList[i].text%></p>
-          <img src="/images/elements/read_more_button.svg" class="read_more" />
+          <h3><%=stories[i].title%></h3>
+          <p><%=stories[i].text%></p>
+          <a href="/stories/<%=stories[i]._id%>">
+            <img src="/images/elements/read_more_button.svg" class="read_more" />
+          </a>
         </div>
 
         <div id="cardTags">
@@ -75,12 +72,6 @@
     </div>
 
     <% } %>
-
-
-
-
-
-
 
     <!-- <div id="card">
 
