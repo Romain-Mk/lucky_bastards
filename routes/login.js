@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var bcrypt = require('bcrypt');
 
 var User = require('../models/user');
 
@@ -20,16 +21,22 @@ router.route('/')
       // Check if user is defined and has at least one element
       if (typeof user !== 'undefined' && user.length > 0) {
 
-        if (password === user[0].password) {
-          console.log("User connected!");
-          res.redirect('/');
-        } else {
-          console.log("Email or password error");
-          res.render('login');
-        }
+        bcrypt.compare(password, user[0].password, function(err, match) {
+
+          if (err) throw(err);
+
+          if (match === true) {
+            // password matches
+            req.session.userId = user[0]._id;
+            res.redirect('/');
+          } else if (match === false) {
+            // password does not match
+            res.render('login');
+          }
+
+        });
 
       } else {
-        console.log('User not exist');
         res.render('login');
       }
 

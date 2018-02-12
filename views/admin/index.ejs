@@ -27,7 +27,9 @@
     </div>
 
     <!-- NEWSFEED -->
-    <div id="author_newsfeed" >
+    <div id="author_newsfeed">
+    
+     <% for (var i=0; i<stories.length; i++) { %>
 
         <div class="author_newsfeed_card">
 
@@ -42,81 +44,15 @@
           </div>
 
           <div class="author_newsfeed_cardBottom">
-            <h3 class="cardText_title">Titre de l'article</h3>
-            <p class="cardText_text">Il était une fois bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+            <h3 class="cardText_title"><%=stories[i].title%></h3>
+            <p class="cardText_text"><%=stories[i].text%></p>
             <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
           </div>
 
         </div>
 
-        <div class="author_newsfeed_card">
-
-          <div class="author_newsfeed_cardTop">
-            <div class="cardTop_banner">
-              <img src="/images/IMG_0088.JPG" class="cardTop_authorPic" alt="Profile picture" />
-              <div class="cardTop_infos">
-                <p class="cardTop_infos_authorName">Romain Mk</p>
-                <p class="cardTop_infos_storyDate">22 janvier 2018</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="author_newsfeed_cardBottom">
-            <div class="author_newsfeed_cardText">
-              <h3 class="cardText_title">Titre de l'article</h3>
-              <p class="cardText_text">Il était une fois bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-              <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
-            </div>
-          </div>
-
-        </div>
-
-        <div class="author_newsfeed_card">
-
-          <div class="author_newsfeed_cardTop">
-            <div class="cardTop_banner">
-              <img src="/images/IMG_0088.JPG" class="cardTop_authorPic" alt="Profile picture" />
-              <div class="cardTop_infos">
-                <p class="cardTop_infos_authorName">Romain Mk</p>
-                <p class="cardTop_infos_storyDate">22 janvier 2018</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="author_newsfeed_cardBottom">
-            <div class="author_newsfeed_cardText">
-              <h3 class="cardText_title">Titre de l'article</h3>
-              <p class="cardText_text">Il était une fois bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-              <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
-            </div>
-          </div>
-
-        </div>
-
-        <div class="author_newsfeed_card">
-
-          <div class="author_newsfeed_cardTop">
-            <div class="cardTop_banner">
-              <img src="/images/IMG_0088.JPG" class="cardTop_authorPic" alt="Profile picture" />
-              <div class="cardTop_infos">
-                <p class="cardTop_infos_authorName">Romain Mk</p>
-                <p class="cardTop_infos_storyDate">22 janvier 2018</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="author_newsfeed_cardBottom">
-            <div class="author_newsfeed_cardText">
-              <h3 class="cardText_title">Titre de l'article</h3>
-              <p class="cardText_text">Il était une fois bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-              <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
-            </div>
-          </div>
-
-        </div>
+        <% } %>
 
     </div>
-
-
 
 <%- include('../inc/footer'); %>

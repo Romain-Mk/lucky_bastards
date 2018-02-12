@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: 'Open sans', cursive, sans-serif;
+}
+
+/* MAIN SCREEN */
+
+.pageLogin {
+  height : 100vh;
+  background-image: url("../images/background_image1.png");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#lienLogo {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  padding-top: 2%;
+  padding-left : 1%;
+}
+
+#logo {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 30%;
+  padding-left: 8%;
+  padding-bottom: 5%;
+}
+
+
+input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom : 20px;
+}
+
+h1 {
+  font-size: 80px;
+  color : white;
+  font-family: 'Sedgwick Ave Display', cursive, sans-serif;
+  margin-bottom: 5%;
+  text-shadow: 1px 1px 1px #000000;
+
+}
+
+input {
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height : 25px;
+  padding-left: 5px;
+  font-family: 'Open sans', cursive, sans-serif;
+
+}
+
+.validate {
+  height : 30px;
+  width : 100px;
+  cursor: pointer;
+  font-family: 'Open sans', cursive, sans-serif;
+  font-size : 14px;
+}
