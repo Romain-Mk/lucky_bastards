@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require("express-session");
+var fileUpload = require('express-fileupload');
+
 
 var db = require('./db/db');
 var index = require('./routes/index');
@@ -25,6 +27,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(fileUpload());
+
 
 // Définition des paramètres de la session : secret => aléatoire / maxAge => temps d'ouverture de la session
 app.use(session({

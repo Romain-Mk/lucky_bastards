@@ -5,7 +5,10 @@ var userSchema = mongoose.Schema({
   email: String,
   password: String,
   picture: String,
-  url: Array,
+  fb: String,
+  insta: String,
+  twitter: String,
+  blog: String,  
   about: String,
   admin: Boolean
 }, {timestamps: true});
