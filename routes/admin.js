@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var fileUpload = require('express-fileupload');
+
 var User = require('../models/user');
+var Story = require('../models/story');
 
 var log = false;
 
@@ -20,37 +22,14 @@ router.all('/*', function (req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  res.render('admin/index', {log});
+  Story.find({}, function(err, stories){
+    res.render('admin/index', {stories, log});
+  });
 });
 
 router.get('/account', function(req, res, next) {
   res.render('admin/account', {log});
 });
-
-// router.post('/account', function(req, res) {
-//   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-//    var profilepic = req.files.profilepic;
-//    // Pour l'instant on nomme toutes les images enregistrées img.jpg, après on pourra utiliser req.session.user._id
-//    // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
-//    var userId = req.session.userId;
-//    var fileName = userId;
-//    // Use the mv() method to place the file somewhere on your server
-//    profilepic.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
-//      if(err){
-//     console.log(err);
-//      }else{
-//
-//        User.update(
-//          {_id: userId},
-//          {picture: fileName +'.jpg'},
-//            function(error, social) {
-//              console.log(social)
-//                res.render('admin/account', {log});
-//      });
-//
-//     }
-//    });
-//  });
 
 router.post ('/account', function(req, res) {
   var facebook = req.body.facebook;
@@ -59,22 +38,17 @@ router.post ('/account', function(req, res) {
   var website = req.body.website;
   var userId = req.session.userId;
 
-
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-   var profilepic = req.files.profilepic;
-   // Pour l'instant on nomme toutes les images enregistrées img.jpg, après on pourra utiliser req.session.user._id
-   // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
-   var fileName = userId;
-
+  var profilepic = req.files.profilepic;
+  // Pour l'instant on nomme toutes les images enregistrées img.jpg, après on pourra utiliser req.session.user._id
+  // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
+  var fileName = userId;
 
   console.log("tous les id "+ facebook, twitter, instagram, website +" ont été ajoutés");
   console.log(userId);
 
   // Use the mv() method to place the file somewhere on your server
   profilepic.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
-   //  if(err){
-   // console.log(err);
-   //  }else{
 
     User.update(
       {_id: userId},
@@ -83,13 +57,43 @@ router.post ('/account', function(req, res) {
           console.log(social)
             res.render('admin/account', {log});
           });
-  // }
+    
   });
 
 });
 
+// New story action
+router.route('/newstory')
+
+  .get(function(req, res, next) {
+    res.render('admin/newstory', {log});
+  })
+
+  .post(function(req, res, next) {
+
+    var newStory = new Story ({
+      tag: null,
+      category: null,
+      title: req.body.title,
+      text: req.body.text_zone,
+      img: null,
+      lang: null,
+      place: null,
+      authorId: null,
+      publish: null
+    });
+
+    newStory.save(function(err, story) {
+      res.redirect('stories/' + story._id);
+    });
+
+  });
+// End
+
 router.get('/stories/:id', function(req, res, next) {
-  res.render('admin/story', {log});
+  Story.findOne({_id: req.params.id}, function (error, story) {
+    res.render('admin/story', {story, log});
+  });
 });
 
 router.get('/delete-account', function(req, res, next) {

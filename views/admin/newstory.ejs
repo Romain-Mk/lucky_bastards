@@ -1,0 +1,49 @@
+<%- include('../inc/header'); %>
+
+
+  <div id="publication_header">
+    <!-- <div id="publication_user_info">
+      <img class="user_pic_publication" src="/images/IMG_0088.JPG" alt="Photo user" />
+      <h2 class="user_name_publication">Romain Mk</h2>
+    </div>
+    <img class="home_logo" src="/images/elements/logo.svg" alt="Logo" /> -->
+  </div>
+
+  <!-- PUBLICATION BODY -->
+
+  <div id="publication_body">
+
+    <div id="side_bar">
+      <img src="/images/elements/create_publication_side_bar_1.svg" />
+    </div>
+
+    <div id="steps">
+
+      <div id="step1">
+        <h2>TELL US YOUR STORY</h2>
+        <!-- <form action="/admin/newstory" method="POST"> -->
+        <form action="/admin/newstory" method="POST">
+          <input type="text" name="title" value="" placeholder="Give your story a title" />
+          <input type="text" name="text_zone" value="" placeholder="Write your story here..."/>
+          <div id="text_creation_buttons">
+            <input type="submit" name="publish" value="Publish" />
+          </div>
+        </form>
+
+      <div id="step2">
+        <h2>ADD PICTURES</h2>
+        <h3>Add a profile picture to your story to make it look better</h3>
+        <img class="add_pics_button" src="elements/add_story_profile_pic_button.svg" />
+        <h3>Do you want to attach some other pictures to your story?</h3>
+        <img class="add_pics_button" src="elements/add_story_pics_button.svg" />
+        <div id="text_creation_buttons">
+          <img src="elements/save_draft_button.svg" />
+          <img src="elements/publish_button.svg" />
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+<%- include('../inc/footer'); %>
