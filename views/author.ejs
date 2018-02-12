@@ -1,22 +1,33 @@
 <%- include('inc/header'); %>
 
     <div id="profile_page_header">
-      <img class="user_pic_profile" src="/images/IMG_0088.JPG" alt="Photo user" />
-      <h2 class="user_name_profile">Romain Mk</h2>
+      <% if ( user.picture == null ) { %>
+        <img class="user_pic_profile" src="/images/profilepics/default.jpg" alt="Photo user" />
+      <% } else { %>
+        <img class="user_pic_profile" src="/images/profilepics/<%=user.picture%>" alt="Photo user" />
+      <% } %>
+      <h2 class="user_name_profile"><%=user.username%></h2>
       <img src="/images/elements/add_as_favorite_author_button.svg"/>
       <div class="social_media_profile">
-        <img class="social_media_icons" src="/images/elements/facebook_icon.svg"/>
-        <img class="social_media_icons" src="/images/elements/twitter_icon.svg"/>
-        <img class="social_media_icons" src="/images/elements/google_icon.svg"/>
-        <img class="social_media_icons" src="/images/elements/instagram_icon.svg"/>
-        <img class="social_media_icons" src="/images/elements/url_icon.svg"/>
+        <% if ( user.fb != null ) { %>
+          <a href="<%=user.fb%>" target="_blank"><img class="social_media_icons" src="/images/elements/facebook_icon.svg"/></a>
+        <% } %>
+        <% if ( user.twitter != null ) { %>
+          <a href="<%=user.twitter%>" target="_blank"><img class="social_media_icons" src="/images/elements/twitter_icon.svg"/></a>
+        <% } %>
+        <% if ( user.insta != null ) { %>
+          <a href="<%=user.insta%>" target="_blank"><img class="social_media_icons" src="/images/elements/instagram_icon.svg"/></a>
+        <% } %>
+        <% if ( user.blog != null ) { %>
+          <a href="<%=user.blog%>" target="_blank"><img class="social_media_icons" src="/images/elements/url_icon.svg"/></a>
+        <% } %>
       </div>
     </div>
 
     <div id="user_stories_navbar">
       <div class="navbar_stories">
         <h3>STORIES</h3>
-        <span>17</span>
+        <span>12</span>
       </div>
       <div class="navbar_pictures">
         <h3>PICTURES</h3>
@@ -30,6 +41,7 @@
 
     <div id="user_stories_body">
 
+<% for (var i=0; i<story.length; i++) { %>
         <div id="card">
 
           <div id="cardPic"></div>
@@ -49,8 +61,8 @@
           <div id="card_bottom">
 
             <div id="cardText">
-              <h3><%=stories[i].title%></h3>
-              <p><%=stories[i].text%></p>
+              <h3><%=story[i].title%></h3>
+              <p><%=story[i].text%></p>
               <img src="/images/elements/read_more_button.svg" class="read_more" />
             </div>
 
@@ -61,8 +73,8 @@
             </div>
 
           </div>
-
         </div>
+<% } %>
 
     </div>
 

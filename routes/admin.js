@@ -22,9 +22,17 @@ router.all('/*', function (req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  Story.find({}, function(err, stories){
-    res.render('admin/index', {stories, log});
+
+  User.findOne({_id: req.session.userId}, function(error, user) {
+    if (error) throw error;
+
+    Story.find({}, function(err, stories){
+      if (error) throw error;
+
+        res.render('admin/index', {stories, user, log});
+    });
   });
+
 });
 
 router.get('/account', function(req, res, next) {
@@ -44,9 +52,6 @@ router.post ('/account', function(req, res) {
   // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
   var fileName = userId;
 
-  console.log("tous les id "+ facebook, twitter, instagram, website +" ont été ajoutés");
-  console.log(userId);
-
   // Use the mv() method to place the file somewhere on your server
   profilepic.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
 
@@ -57,7 +62,17 @@ router.post ('/account', function(req, res) {
           console.log(social)
             res.render('admin/account', {log});
           });
-    
+
+  // coverpic.mv('./public' + '/images/coverpics/' + fileName + '.jpg' , function(err) {
+  //
+  //   User.update(
+  //     {_id: userId},
+  //     {coverpicture: fileName +'.jpg'},
+  //     function(error, cover) {
+  //         console.log(cover)
+  //           res.render('admin/account', {log});
+  //         });
+
   });
 
 });
