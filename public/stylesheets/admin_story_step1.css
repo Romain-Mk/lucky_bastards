@@ -40,21 +40,46 @@ body {
   margin-right: 2%;
 }
 
-#publication_1_body {
+#publication_body {
   display: flex;
 }
+
+#steps {
+  display: flex;
+  flex-direction: column;
+}
+
+/* #publication_1_body {
+  display: flex;
+} */
 
 #side_bar {
   margin-left: 2%;
   margin-top: 2%;
 }
 
-#text_creation {
+#step1 {
   display: flex;
   flex-direction: column;
   margin-left: 2%;
   margin-top: 2%;
   width: 100%;
+}
+
+#step2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 2%;
+  margin-top: 2%;
+  width: 100%;
+}
+
+#title {
+  width: 90%;
+  height: 20px;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 #text_zone {

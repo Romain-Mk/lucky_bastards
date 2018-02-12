@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var Story = require('../models/story');
+
 var log = false;
 
 // Pour appliquer la condition à l'ensemble des routes :
@@ -18,15 +20,47 @@ router.all('/*', function (req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  res.render('admin/index', {log});
+  Story.find({}, function(err, stories){
+    res.render('admin/index', {stories, log});
+  });
 });
 
 router.get('/account', function(req, res, next) {
   res.render('admin/account', {log});
 });
 
+// New story action
+router.route('/newstory')
+
+  .get(function(req, res, next) {
+    res.render('admin/newstory', {log});
+  })
+
+  .post(function(req, res, next) {
+
+    var newStory = new Story ({
+      tag: null,
+      category: null,
+      title: req.body.title,
+      text: req.body.text_zone,
+      img: null,
+      lang: null,
+      place: null,
+      authorId: null,
+      publish: null
+    });
+
+    newStory.save(function(err, story) {
+      res.redirect('stories/' + story._id);
+    });
+
+  });
+// End
+
 router.get('/stories/:id', function(req, res, next) {
-  res.render('admin/story', {log});
+  Story.findOne({_id: req.params.id}, function (error, story) {
+    res.render('admin/story', {story, log});
+  });
 });
 
 module.exports = router;
