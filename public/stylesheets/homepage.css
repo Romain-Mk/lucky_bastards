@@ -17,6 +17,7 @@ body {
   text-align: center;
 }
 
+
 #banner {
   display: flex;
   justify-content: space-between;
@@ -26,6 +27,7 @@ body {
   left: 0;
   z-index: 4;
   padding-top: 2%;
+  /*align-items: center;*/
 }
 
 #logo {
@@ -37,9 +39,19 @@ body {
 }
 
 #login_buttons {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 2%;
+  margin-right: 2%;
+  padding : 0;
+}
+
+.login_signup {
+  font-size: 14px;
+  text-decoration: none;
+  color : #C6C6C6;
+  border : 1px solid #C6C6C6;
+  border-radius: 10px;
+  padding : 4px;
+  margin-right : 5px;
+  font-weight : bold;
 }
 
 #signup {
