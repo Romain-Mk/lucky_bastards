@@ -1,39 +1,32 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
 
-var userSchema = mongoose.Schema({
-  username: String,
-  email: String,
-  password: String,
-  picture: String,
-  url: Array,
-  about: String,
-  timestamp: Date,
-  admin: Boolean
-});
-var userModel = mongoose.model('users', userSchema);
+var User = require('../models/user');
 
-router.post('/signup', function(req, res, next) {
+router.route('/')
 
-  userModel.find(
-      { email: req.body.email } ,
-      function (err, users) {
-        if(users.length == 0) {
+  .get(function(req, res, next) {
+    res.render('signup');
+  })
 
-        var newUser = new userModel ({
-         name: req.body.name,
-         email: req.body.email,
-         password: req.body.password
-        });
-        newUser.save(
-          function (error, user) {
-            req.session.user = user;
-          }
-        );
-      } else {
-        res.render('signup');
-      }
-    }
-  );
-});
+  .post(function(req, res, next) {
+
+    bcrypt.hash(req.body.password, 10, function(err, hash) {
+
+      var newUser = new User ({
+        username: req.body.username,
+        email: req.body.email,
+        password: hash
+      });
+
+      newUser.save(function (error, user) {
+        if (error) throw (error);
+        res.redirect('/');
+      });
+
+    });
+
+  });
+
+module.exports = router;
