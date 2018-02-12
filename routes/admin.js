@@ -33,12 +33,12 @@ router.get('/account', function(req, res, next) {
 router.route('/newstory')
 
   .get(function(req, res, next) {
-    res.render('admin/newstory');
+    res.render('admin/newstory', {log});
   })
 
   .post(function(req, res, next) {
 
-    var newStory = new storyModel ({
+    var newStory = new Story ({
       tag: null,
       category: null,
       title: req.body.title,
@@ -50,8 +50,8 @@ router.route('/newstory')
       publish: null
     });
 
-    Story.save(function(err, story) {
-      res.redirect('/stories/' + story._id);
+    newStory.save(function(err, story) {
+      res.redirect('stories/' + story._id);
     });
 
   });
@@ -59,7 +59,7 @@ router.route('/newstory')
 
 router.get('/stories/:id', function(req, res, next) {
   Story.findOne({_id: req.params.id}, function (error, story) {
-    res.render('story', {story, log});
+    res.render('admin/story', {story, log});
   });
 });
 
