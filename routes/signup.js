@@ -4,10 +4,12 @@ var bcrypt = require('bcrypt');
 
 var User = require('../models/user');
 
+var errors = null;
+
 router.route('/')
 
   .get(function(req, res, next) {
-    res.render('signup');
+    res.render('signup', {errors});
   })
 
   .post(function(req, res, next) {
@@ -20,10 +22,37 @@ router.route('/')
         password: hash
       });
 
-      newUser.save(function (error, user) {
-        if (error) throw (error);
-        res.redirect('/');
+      // Form validator
+      req.checkBody({
+        'username': {
+          isLength: {
+            errorMessage: 'Username must be at least 3 chars long',
+            options: { min: 3 }
+          }
+        },
+        'email': {
+          isEmail: {
+            errorMessage: 'Invalid email address'
+          }
+        },
+        'password': {
+          isLength: {
+            errorMessage: 'Password must be at least 3 chars long',
+            options: { min: 3 }
+          }
+        }
       });
+
+      errors = req.validationErrors();
+
+      if (errors) {
+        res.render('signup', {errors});
+      } else {
+        newUser.save(function (error, user) {
+          if (error) throw (error);
+          res.redirect('/');
+        });
+      }
 
     });
 
