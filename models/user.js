@@ -8,7 +8,7 @@ var userSchema = mongoose.Schema({
   fb: String,
   insta: String,
   twitter: String,
-  blog: String,  
+  blog: String,
   about: String,
   admin: Boolean
 }, {timestamps: true});

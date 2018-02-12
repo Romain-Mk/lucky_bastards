@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require("express-session");
 var fileUpload = require('express-fileupload');
-
+var expressValidator = require('express-validator');
 
 var db = require('./db/db');
 var index = require('./routes/index');
@@ -28,6 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(fileUpload());
+app.use(expressValidator());
 
 
 // Définition des paramètres de la session : secret => aléatoire / maxAge => temps d'ouverture de la session
