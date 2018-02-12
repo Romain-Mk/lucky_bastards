@@ -27,40 +27,26 @@
     </div>
 
     <!-- NEWSFEED -->
-    <div id="user_stories_body">
+    <div id="author_newsfeed">
+    
+     <% for (var i=0; i<stories.length; i++) { %>
 
-        <% for (var i=0; i<stories.length; i++) { %>
+        <div class="author_newsfeed_card">
 
-        <div id="card">
-
-          <div id="cardPic"></div>
-
-          <div id="cardIcons">
-            <img src="/images/IMG_0088.JPG" class="user_pic" alt="Photo user" />
-            <div id="name_date">
-              <p class="user_name">Romain Mk</p>
-              <p class="date">22 janvier 2018</p>
-            </div>
-            <div id="save_share_icons">
-              <img class="save" src="/images/elements/save_button.svg"/>
-              <img class="share" src="/images/elements/share_button.svg"/>
+          <div class="author_newsfeed_cardTop">
+            <div class="cardTop_banner">
+              <img src="/images/IMG_0088.JPG" class="cardTop_authorPic" alt="Profile picture" />
+              <div class="cardTop_infos">
+                <p class="cardTop_infos_authorName">Romain Mk</p>
+                <p class="cardTop_infos_storyDate">22 janvier 2018</p>
+              </div>
             </div>
           </div>
 
-          <div id="card_bottom">
-
-            <div id="cardText">
-              <h3><%=stories[i].title%></h3>
-              <p><%=stories[i].text%></p>
-              <img src="/images/elements/read_more_button.svg" class="read_more" />
-            </div>
-
-            <div id="cardTags">
-              <img src="/images/elements/tag_funny.svg" />
-              <img src="/images/elements/tag_dangerous.svg" />
-              <img src="/images/elements/tag_scary.svg" />
-            </div>
-
+          <div class="author_newsfeed_cardBottom">
+            <h3 class="cardText_title"><%=stories[i].title%></h3>
+            <p class="cardText_text"><%=stories[i].text%></p>
+            <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
           </div>
 
         </div>
@@ -68,6 +54,5 @@
         <% } %>
 
     </div>
-
 
 <%- include('../inc/footer'); %>
