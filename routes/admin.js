@@ -21,7 +21,7 @@ router.all('/*', function (req, res, next) {
 
 router.get('/', function(req, res, next) {
   Story.find({}, function(err, stories){
-    res.render('admin/index', {stories}, {log});
+    res.render('admin/index', {stories, log});
   });
 });
 
@@ -59,7 +59,7 @@ router.route('/newstory')
 
 router.get('/stories/:id', function(req, res, next) {
   Story.findOne({_id: req.params.id}, function (error, story) {
-    res.render('story', {story}, {log});
+    res.render('story', {story, log});
   });
 });
 
