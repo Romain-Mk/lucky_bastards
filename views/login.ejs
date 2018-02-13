@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="utf-8" />
-      <title>Login</title>
-  <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-      <link rel="stylesheet" href="/stylesheets/login.css">
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/login.css">
   </head>
   <body>
+
     <div id="lienLogo">
-      <a href="/"><img id="logo" src="/images/elements/logo.svg" /></a>
+      <a href="/">
+        <img id="logo" src="/images/elements/logo.svg" />
+      </a>
     </div>
 
     <div class="pageLogin">
+
       <h1>Login</h1>
+
+      <% if (feedback) { %>
+        <ul>
+            <li><%= feedback %></li>
+        </ul>
+      <% } %>
+
+      <% if (errors) { %>
+        <ul>
+          <% errors.forEach(function(error){ %>
+            <li><%= error.msg %></li>
+          <% }); %>
+        </ul>
+      <% } %>
+
       <form action="/login/<%= from %>" method="post">
-        <input type="email" name="email" placeholder="Your email" required>
-        <input type="password" name="password" placeholder="Your Password" required>
-        <input type="submit" name="submit" value="Valider" class="validate">
+        <input type="email" name="email" placeholder="Your email" value="" required>
+        <input type="password" name="password" placeholder="Your Passworde" value="" required>
+        <input type="submit" class="validate" name="submit" value="Valider">
       </form>
+  
       <span class="renvoiSignupLogin">Si vous n'avez pas encore de compte, <a href="/signup">cliquez ici</a></span>
+      
     </div>
+
   </body>
 </html>

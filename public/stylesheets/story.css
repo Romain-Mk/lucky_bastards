@@ -9,13 +9,15 @@ body {
   background-size: cover;
   background-position: center center;
   height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 #story_pic_banner {
   background-color: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
-  transform: translate(0px, 321px);
 }
 
 .user_pic {
@@ -46,7 +48,7 @@ body {
   margin-bottom: 0;
 }
 
-#story_like_comment {
+/* #story_like_comment {
   display: flex;
   margin-left: 70%;
 }
@@ -66,7 +68,7 @@ body {
   font-size: 14px;
   margin-top: 0;
   margin-bottom: 0;
-}
+} */
 
 /* TEXTE & SIDE MENU */
 
@@ -105,21 +107,19 @@ body {
   font-family: 'Roboto condensed', 'Open sans', cursive, sans-serif;
 }
 
-h2, h3 {
+.storyTitle {
+  color: #3D4D65;
+  font-family: 'Open sans', cursive, sans-serif;
   margin-top: 0;
 }
 
-h2 {
-  color: #3D4D65;
-  font-family: 'Open sans', cursive, sans-serif;
-}
-
-h3 {
+.side_cards_titles {
   font-size: 16px;
   padding-top: 4%;
   padding-bottom: 4%;
   padding-left: 4%;
   color: #3D4D65;
+  margin-top: 0;
 }
 
 .cards_text {

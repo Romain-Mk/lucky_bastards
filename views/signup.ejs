@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8" />
     <title>Login</title>
-<link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/login.css">
-</head>
-<body>
-  <div id="lienLogo">
-      <a href="/"><img id="logo" src="/images/elements/logo.svg" /></a>
-  </div>
-  <div class="pageLogin">
-    <h1>Signup</h1>
-    <form action="/signup" method="post" class="input_column">
-      <input type="text" name="username" placeholder="Votre identifiant" required>
-      <input type="email" name="email" placeholder="Votre email" required>
-      <input type="password" name="password" placeholder="Votre mot de passe" required>
-      <input type="submit" name="submit" value="S'inscrire" class="validate">
-    </form>
-    <span class="renvoiSignupLogin">Si vous possedez déjà un compte, <a href="/login">cliquez ici</a></span>
-  </div>
+  </head>
+  <body>
+
+    <div id="lienLogo">
+        <a href="/">
+          <img id="logo" src="/images/elements/logo.svg" />
+        </a>
+    </div>
+
+    <div class="pageLogin">
+
+      <h1>Signup</h1>
+
+      <% if (errors) { %>
+        <ul>
+          <% errors.forEach(function(error){ %>
+            <li><%= error.msg %></li>
+          <% }); %>
+        </ul>
+      <% } %>
+
+      <form class="input_column" action="/signup" method="post">
+        <input type="text" name="username" placeholder="Your Username" value="" required>
+        <input type="email" name="email" placeholder="Your Email" value="" required>
+        <input type="password" name="password" placeholder="Your Password" value="" required>
+        <input class="validate" type="submit" name="submit" value="Register">
+      </form>
+      
+      <span class="renvoiSignupLogin">Si vous possedez déjà un compte, <a href="/login">cliquez ici</a></span>
+      
+    </div>
+
   </body>
 </html>
