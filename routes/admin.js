@@ -57,7 +57,7 @@ router.post ('/account', function(req, res) {
           console.log(social)
             res.render('admin/account', {log});
           });
-    
+
   });
 
 });
@@ -103,9 +103,22 @@ router.get('/delete-account', function(req, res, next) {
       {_id: userId},
       function(error) {
         res.render('index', {log});
-      }
-  );
+      });
+})
 
+router.get('/newstory/:id', function (req, res, next) {
+  console.log(req.params.id);
+  Story.findOne({_id: req.params.id}, function (error, storyContent) {
+    res.render('admin/newstory', {storyContent, log});
+  });
+})
+
+router.get('/delete-stories/:id', function (req, res, next) {
+  Story.remove({_id: req.query.storyid}, function (error, stories) {
+    Story.find({}, function(err, stories) {
+      res.render('admin/index', { stories, log});
+    });
+  });
 })
 
 module.exports = router;
