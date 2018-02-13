@@ -28,64 +28,62 @@ function login(req, res, next) {
 
   var email = req.body.email;
   var password = req.body.password;
-  
-    // Form validator
-    req.checkBody({
-      'email': {
-        isEmail: {
-          errorMessage: 'Invalid email address'
-        }
-      },
-      'password': {
-        isLength: {
-          errorMessage: 'Password must be at least 3 chars long',
-          options: { min: 3 }
-        }
+
+  // Form validator
+  req.checkBody({
+    'email': {
+      isEmail: {
+        errorMessage: 'Invalid email address'
       }
-    });
+    },
+    'password': {
+      isLength: {
+        errorMessage: 'Password must be at least 3 chars long',
+        options: { min: 3 }
+      }
+    }
+  });
 
-    errors = req.validationErrors();
+  errors = req.validationErrors();
 
-    if (errors) {
-      res.render('login', {from, errors, feedback});
-    } else {
+  if (errors) {
+    res.render('login', {from, errors, feedback});
+  } else {
 
-  User.find({ email: email }, function(err, user) {
-    if (err) throw err;
+    User.find({ email: email }, function(err, user) {
+      if (err) throw err;
 
-    // Check if user is defined and has at least one element
-    if (typeof user !== 'undefined' && user.length > 0) {
+      // Check if user is defined and has at least one element
+      if (typeof user !== 'undefined' && user.length > 0) {
 
-      bcrypt.compare(password, user[0].password, function(err, match) {
+        bcrypt.compare(password, user[0].password, function(err, match) {
 
-        if (err) throw(err);
+          if (err) throw(err);
 
-        if (match === true) {
-          // password matches
-          req.session.userId = user[0]._id;
+          if (match === true) {
+            // password matches
+            req.session.userId = user[0]._id;
 
-          if (req.params.from === 'addbutton') {
-            res.redirect('/admin/newstory');
-          } else {
-            res.redirect('/');
+            if (req.params.from === 'addbutton') {
+              res.redirect('/admin/newstory');
+            } else {
+              res.redirect('/');
+            }
+
+          } else if (match === false) {
+            // password does not match
+            res.render('login', {from: req.params.from, errors, feedback: 'Invalid email or password'});
           }
 
-        } else if (match === false) {
-          // password does not match
-          res.render('login', {from: req.params.from, errors, feedback: 'Invalid email or password'});
-        }
+        });
 
-      });
+      } else {
+        res.render('login', {from: req.params.from, errors, feedback: 'Invalid email or password'});
+      }
 
-    } else {
-      res.render('login', {from, errors, feedback: 'Invalid email or password'});
-    }
-        
-        
-      });
-    }
+    });
 
-  });
+  }
 
 }
 
