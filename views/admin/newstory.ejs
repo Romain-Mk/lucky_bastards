@@ -23,11 +23,6 @@
         <h2>TELL US YOUR STORY</h2>
         <!-- <form action="/admin/newstory" method="POST"> -->
         <form action="/admin/newstory" method="POST">
-          <% if (value) { %>
-            <input type="text" name="title" value="<%=storyContent.title%>" placeholder="Give your story a title" />
-          <% } else { %>
-            <input type="text" name="title" value="" placeholder="Give your story a title" />
-          <% } %>
           <input type="text" name="title" value="<%=storyContent.title%>" placeholder="Give your story a title" />
           <input type="text" name="text_zone" value="<%=storyContent.text%>" placeholder="Write your story here..."/>
           <div id="text_creation_buttons">

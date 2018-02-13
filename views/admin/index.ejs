@@ -38,8 +38,8 @@
               <a href="/admin/newstory/<%=stories[i]._id%>" name="button">
                 <img class="modify_button" src="/images/elements/modify_icon.svg" />
               </a>
-              <!-- On passe en paramètre dans l'url les données de la BDD qu'on veut exploiter (après le ?) -->
-              <a href="/admin/delete-stories/:id?storyid=<%=stories[i]._id%>" name="button">
+              <!-- On passe en paramètre dans l'url les données de la BDD qu'on veut exploiter (Express url parameters) -->
+              <a href="/admin/delete-stories/<%=stories[i]._id%>" name="button">
                 <img src="/images/elements/cancel_icon.svg" class="cancel_button"/>
               </a>
             </div>

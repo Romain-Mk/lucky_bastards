@@ -6,6 +6,7 @@ var User = require('../models/user');
 var Story = require('../models/story');
 
 var log = false;
+var storyContent = {title: '', text: '', __v: 0 };
 
 // Pour appliquer la condition à l'ensemble des routes :
 router.all('/*', function (req, res, next) {
@@ -66,7 +67,7 @@ router.post ('/account', function(req, res) {
 router.route('/newstory')
 
   .get(function(req, res, next) {
-    res.render('admin/newstory', {log});
+    res.render('admin/newstory', {storyContent, log});
   })
 
   .post(function(req, res, next) {
@@ -107,14 +108,13 @@ router.get('/delete-account', function(req, res, next) {
 })
 
 router.get('/newstory/:id', function (req, res, next) {
-  console.log(req.params.id);
   Story.findOne({_id: req.params.id}, function (error, storyContent) {
     res.render('admin/newstory', {storyContent, log});
   });
 })
 
 router.get('/delete-stories/:id', function (req, res, next) {
-  Story.remove({_id: req.query.storyid}, function (error, stories) {
+  Story.remove({_id: req.params.id}, function (error, stories) {
     Story.find({}, function(err, stories) {
       res.render('admin/index', { stories, log});
     });
