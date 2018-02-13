@@ -25,11 +25,9 @@ router.get('/', function(req, res, next) {
 
   User.findOne({_id: req.session.userId}, function(error, user) {
     if (error) throw error;
-
     Story.find({}, function(err, stories){
       if (error) throw error;
-
-        res.render('admin/index', {stories, user, log});
+      res.render('admin/index', {stories, user, log});
     });
   });
 
@@ -57,22 +55,10 @@ router.post ('/account', function(req, res) {
 
     User.update(
       {_id: userId},
-      {picture: fileName +'.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
+      {picture: fileName + '.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
       function(error, social) {
-          console.log(social)
-            res.render('admin/account', {log});
-          });
-
-  // coverpic.mv('./public' + '/images/coverpics/' + fileName + '.jpg' , function(err) {
-  //
-  //   User.update(
-  //     {_id: userId},
-  //     {coverpicture: fileName +'.jpg'},
-  //     function(error, cover) {
-  //         console.log(cover)
-  //           res.render('admin/account', {log});
-  //         });
-
+        res.render('admin/account', {log});
+      });
   });
 
 });
@@ -113,14 +99,9 @@ router.get('/stories/:id', function(req, res, next) {
 
 router.get('/delete-account', function(req, res, next) {
   var userId = req.session.userId;
-
-  User.remove(
-      {_id: userId},
-      function(error) {
-        res.render('index', {log});
-      }
-  );
-
-})
+  User.remove({_id: userId}, function(error) {
+    res.render('index', {log});
+  });
+});
 
 module.exports = router;
