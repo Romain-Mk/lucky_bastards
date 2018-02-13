@@ -20,14 +20,15 @@
 
     <div id="banner">
 
-      <div>
-        <img id="logo" src="/images/elements/logo.svg" />
+      <div id="lienLogo">
+        <a href="/"><img id="logo" src="/images/elements/logo.svg" /></a>
       </div>
 
 
 
         <div id="login_buttons">
           <% if (log) { %>
+            <a href="/admin" class="login_signup logout">My Profile</a>
             <a href="/logout" class="login_signup logout">Logout</a>
           <% } else { %>
           <a href="/login" class="login_signup">Log in</a>

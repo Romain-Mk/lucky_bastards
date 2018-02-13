@@ -29,6 +29,7 @@ body {
   /*align-items: center;*/
 }
 
+
 #logo {
   display: flex;
   justify-content: flex-start;
@@ -113,6 +114,8 @@ body {
 .homepage_filters_navbar {
   display: flex;
   justify-content: space-between;
+  margin-left: 2%;
+  margin-right: 2%;
   font-family: 'Roboto condensed', 'Open sans', cursive, sans-serif;
   color: #8493A8;
   border-width: thin;

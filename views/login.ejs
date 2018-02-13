@@ -10,9 +10,9 @@
   <body>
 
     <div id="lienLogo">
-        <a href="/">
-          <img id="logo" src="/images/elements/logo.svg" />
-        </a>
+      <a href="/">
+        <img id="logo" src="/images/elements/logo.svg" />
+      </a>
     </div>
 
     <div class="pageLogin">
@@ -33,12 +33,14 @@
         </ul>
       <% } %>
 
-      <form action="/login" method="post">
-        <input type="email" name="email" placeholder="Votre email" value="" required>
-        <input type="password" name="password" placeholder="Votre mot de passe" value="" required>
+      <form action="/login/<%= from %>" method="post">
+        <input type="email" name="email" placeholder="Your email" value="" required>
+        <input type="password" name="password" placeholder="Your Passworde" value="" required>
         <input type="submit" class="validate" name="submit" value="Valider">
       </form>
-
+  
+      <span class="renvoiSignupLogin">Si vous n'avez pas encore de compte, <a href="/signup">cliquez ici</a></span>
+      
     </div>
 
   </body>

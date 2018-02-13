@@ -21,8 +21,12 @@
 
   <!-- FILTRES -->
 
-  <div class="homepage_filters_navbar">
-    <img src="/images/elements/add_a_story_button.svg">
+  <div id="filters_navbar">
+    <% if (log) { %>
+      <a href="/admin/newstory"><img src="/images/elements/add_a_story_button.svg"></a>
+    <% } else { %>
+      <a href="/login/addbutton"><img src="/images/elements/add_a_story_button.svg"></a>
+    <% } %>
     <h3>MOST RECENT</h3>
     <h3>MOST POPULAR</h3>
     <h3>FAVORITE AUTHORS</h3>

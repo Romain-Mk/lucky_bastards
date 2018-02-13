@@ -10,9 +10,9 @@
   <body>
 
     <div id="lienLogo">
-        <a href="/">
-          <img id="logo" src="/images/elements/logo.svg" />
-        </a>
+      <a href="/">
+        <img id="logo" src="/images/elements/logo.svg" />
+      </a>
     </div>
 
     <div class="pageLogin">
@@ -28,11 +28,13 @@
       <% } %>
 
       <form class="input_column" action="/signup" method="post">
-        <input type="text" name="username" placeholder="Votre identifiant" value="" required>
-        <input type="email" name="email" placeholder="Votre email" value="" required>
-        <input type="password" name="password" placeholder="Votre mot de passe" value="" required>
-        <input class="validate" type="submit" name="submit" value="S'inscrire">
+        <input type="text" name="username" placeholder="Your Username" value="" required>
+        <input type="email" name="email" placeholder="Your Email" value="" required>
+        <input type="password" name="password" placeholder="Your Password" value="" required>
+        <input class="validate" type="submit" name="submit" value="Register">
       </form>
+
+      <span class="renvoiSignupLogin">Si vous possedez déjà un compte, <a href="/login">cliquez ici</a></span>
 
     </div>
 
