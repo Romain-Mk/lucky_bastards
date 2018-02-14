@@ -6,6 +6,7 @@ var User = require('../models/user');
 var Story = require('../models/story');
 
 var log = false;
+var storyContent = {title: '', text: '', __v: 0 };
 
 // Pour appliquer la condition à l'ensemble des routes :
 router.all('/*', function (req, res, next) {
@@ -57,8 +58,9 @@ router.post ('/account', function(req, res) {
       {_id: userId},
       {picture: fileName + '.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
       function(error, social) {
-        res.render('admin/account', {log});
-      });
+            res.render('admin/account', {log});
+    });
+
   });
 
 });
@@ -67,7 +69,7 @@ router.post ('/account', function(req, res) {
 router.route('/newstory')
 
   .get(function(req, res, next) {
-    res.render('admin/newstory', {log});
+    res.render('admin/newstory', {storyContent, log});
   })
 
   .post(function(req, res, next) {
@@ -99,8 +101,25 @@ router.get('/stories/:id', function(req, res, next) {
 
 router.get('/delete-account', function(req, res, next) {
   var userId = req.session.userId;
-  User.remove({_id: userId}, function(error) {
-    res.render('index', {log});
+
+  User.remove(
+      {_id: userId},
+      function(error) {
+        res.render('index', {log});
+      });
+});
+
+router.get('/newstory/:id', function (req, res, next) {
+  Story.findOne({_id: req.params.id}, function (error, storyContent) {
+    res.render('admin/newstory', {storyContent, log});
+  });
+});
+
+router.get('/delete-stories/:id', function (req, res, next) {
+  Story.remove({_id: req.params.id}, function (error, stories) {
+    Story.find({}, function(err, stories) {
+      res.render('admin/index', { stories, log});
+    });
   });
 });
 

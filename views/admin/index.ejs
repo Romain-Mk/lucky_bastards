@@ -54,6 +54,15 @@
         <div class="author_newsfeed_card">
 
           <div class="author_newsfeed_cardTop">
+            <div class="cardTop_modifyIcons">
+              <a href="/admin/newstory/<%=stories[i]._id%>" name="button">
+                <img class="modify_button" src="/images/elements/modify_icon.svg" />
+              </a>
+              <!-- On passe en paramètre dans l'url les données de la BDD qu'on veut exploiter (Express url parameters) -->
+              <a href="/admin/delete-stories/<%=stories[i]._id%>" name="button">
+                <img src="/images/elements/cancel_icon.svg" class="cancel_button"/>
+              </a>
+            </div>
             <div class="cardTop_banner">
               <img src="/images/IMG_0088.JPG" class="cardTop_authorPic" alt="Profile picture" />
               <div class="cardTop_infos">

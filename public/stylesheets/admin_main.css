@@ -96,6 +96,13 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  position: relative;
+}
+
+.cardTop_modifyIcons {
+  position: absolute;
+  top: 2%;
+  right: 2%;
 }
 
 .cardTop_banner {
