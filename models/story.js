@@ -10,6 +10,6 @@ var storySchema = mongoose.Schema({
   place: String,
   authorId: String,
   publish: Boolean
-});
+}, {timestamps: true});
 
 module.exports = mongoose.model('stories', storySchema);

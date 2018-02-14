@@ -63,13 +63,11 @@ router.post ('/account', function(req, res) {
 
 });
 
-// New story action
+// New story
 router.route('/newstory')
-
   .get(function(req, res, next) {
     res.render('admin/newstory', {log});
   })
-
   .post(function(req, res, next) {
 
     var newStory = new Story ({
@@ -80,14 +78,14 @@ router.route('/newstory')
       img: null,
       lang: null,
       place: null,
-      authorId: null,
+      authorId: req.session.userId,
       publish: null
     });
 
     newStory.save(function(err, story) {
-      res.redirect('stories/' + story._id);
+      // res.json(story);
+      res.redirect('/admin');
     });
-
   });
 // End
 
