@@ -59,8 +59,8 @@ router.post ('/account', function(req, res) {
       {picture: fileName + '.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
       function(error, social) {
             res.render('admin/account', {log});
-          });
-      });
+    });
+
   });
 
 });
