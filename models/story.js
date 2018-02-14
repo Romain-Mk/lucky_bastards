@@ -4,12 +4,9 @@ var storySchema = mongoose.Schema({
   title: String,
   text: String,
   img: String,
-  tag: Array,
-  category: Array,
-  lang: String,
-  place: String,
   authorId: String,
-  publish: Boolean
-});
+  authorName: String,
+  authorPicture: {type:String, default: null}
+}, {timestamps: true});
 
 module.exports = mongoose.model('stories', storySchema);

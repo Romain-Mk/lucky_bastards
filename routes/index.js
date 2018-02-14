@@ -20,8 +20,12 @@ router.all('/*', function (req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  Story.find({}, function(err, stories) {
-    res.render('index', {stories, log});
+  User.find({}, function(error, user) {
+    if (error) throw error;
+      Story.find({}).sort({createdAt: -1}).exec(function(err, stories) {
+        if (err) throw err;
+        res.render('index', {stories, user, log});
+      });
   });
 });
 
@@ -33,15 +37,14 @@ router.get('/stories/:id', function(req, res, next) {
 });
 
 router.get('/authors/:id', function(req, res, next) {
-
-  User.findOne({_id: req.params.id}, function(error, user) {
+  var id = req.params.id;
+  User.findOne({_id: id}, function(error, user) {
     if (error) throw error;
-    Story.find({}, function(error, story) {
+    Story.find({authorId: id}, function(error, story) {
       if (error) throw error;
       res.render('author', {user, story, log});
     });
   });
-
 });
 
 module.exports = router;
