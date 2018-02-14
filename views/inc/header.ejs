@@ -28,8 +28,23 @@
 
         <div id="login_buttons">
           <% if (log) { %>
-            <a href="/admin" class="login_signup logout">My Profile</a>
-            <a href="/logout" class="login_signup logout">Logout</a>
+            <div class="nav">
+              <ul id="menu">
+                <li class="menu_title">Menu
+                  <ul class="menu_deroulant">
+                    <li class="menu_links">
+                      <a href="/admin/newstory">Add a Story</a>
+                    </li>
+                    <li  class="menu_links">
+                      <a href="/admin">My Profile</a>
+                    </li>
+                    <li  class="menu_links">
+                      <a href="/logout">Logout</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           <% } else { %>
           <a href="/login" class="login_signup">Log in</a>
           <a href="/signup" class="login_signup">Sign up</a>

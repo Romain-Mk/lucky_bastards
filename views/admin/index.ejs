@@ -8,7 +8,7 @@
       <% } %>
 
       <h2 class="user_name_profile"><%= user.username %></h2>
-      <img src="/images/elements/add_as_favorite_author_button.svg"/>
+      <a href="/admin/newstory"><img src="/images/elements/add_a_story_button.svg"></a>
       <div class="social_media_profile">
         <% if (user.fb) { %>
           <a href="<%=user.fb%>" target="_blank">
