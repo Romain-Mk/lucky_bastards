@@ -1,115 +1,79 @@
 <%- include('inc/header'); %>
 
-    <div id="profile_page_header">
-      <img class="user_pic_profile" src="/images/IMG_0088.JPG" alt="Photo user" />
-      <h2 class="user_name_profile">Romain Mk</h2>
-      <img src="/images/elements/add_as_favorite_author_button.svg"/>
-      <div class="social_media_profile">
+<div id="profile_page_header">
+  <% if (user.picture) { %>
+    <img class="user_pic_profile" src="/images/profilepics/<%=user.picture%>" alt="Photo user" />
+  <% } else { %>
+    <img class="user_pic_profile" src="/images/profilepics/default.jpg" alt="Photo user" />
+  <% } %>
+  <h2 class="user_name_profile"><%= user.username %></h2>
+  <img src="/images/elements/add_as_favorite_author_button.svg"/>
+  <div class="social_media_profile">
+    <% if (user.fb) { %>
+      <a href="<%=user.fb%>" target="_blank">
         <img class="social_media_icons" src="/images/elements/facebook_icon.svg"/>
+      </a>
+    <% } %>
+    <% if (user.twitter) { %>
+      <a href="<%=user.twitter%>" target="_blank">
         <img class="social_media_icons" src="/images/elements/twitter_icon.svg"/>
-        <img class="social_media_icons" src="/images/elements/google_icon.svg"/>
+      </a>
+    <% } %>
+    <% if (user.insta) { %>
+      <a href="<%=user.insta%>" target="_blank">
         <img class="social_media_icons" src="/images/elements/instagram_icon.svg"/>
+      </a>
+    <% } %>
+    <% if (user.blog) { %>
+      <a href="<%=user.blog%>" target="_blank">
         <img class="social_media_icons" src="/images/elements/url_icon.svg"/>
-      </div>
-    </div>
+      </a>
+    <% } %>
+  </div>
+</div>
 
-    <div id="user_stories_navbar">
-      <div class="navbar_stories">
-        <h3>STORIES</h3>
-        <span class="number">17</span>
-      </div>
-      <div class="navbar_pictures">
-        <h3>PICTURES</h3>
-        <span class="number">45</span>
-      </div>
-      <h3>STORY MAP</h3>
-      <h3>ABOUT ME</h3>
-    </div>
-
-<!-- NEWSFEED -->
+<div id="user_stories_navbar">
+  <div class="navbar_stories">
+    <h3>STORIES</h3>
+    <span class="number">17</span>
+  </div>
+  <div class="navbar_pictures">
+    <h3>PICTURES</h3>
+    <span class="number">45</span>
+  </div>
+  <h3>STORY MAP</h3>
+  <h3>ABOUT ME</h3>
+</div>
 
 <div id="author_newsfeed">
+
+  <% for (var i=0; i<story.length; i++) { %>
 
     <div class="author_newsfeed_card">
 
       <div class="author_newsfeed_cardTop">
         <div class="cardTop_banner">
-          <img src="/images/IMG_0088.JPG" class="cardTop_authorPic" alt="Profile picture" />
+          <% if (story[i].authorPicture) { %>
+            <img class="user_pic_profile" src="/images/profilepics/<%=story[i].authorPicture%>" alt="Photo user" />
+          <% } else { %>
+            <img class="user_pic_profile" src="/images/profilepics/default.jpg" alt="Photo user" />
+          <% } %>
           <div class="cardTop_infos">
-            <p class="cardTop_infos_authorName">Romain Mk</p>
-            <p class="cardTop_infos_storyDate">22 janvier 2018</p>
+            <p class="cardTop_infos_authorName"><%= story[i].authorName %></p>
+            <p class="cardTop_infos_storyDate"><%= story[i].createdAt %></p>
           </div>
         </div>
       </div>
 
       <div class="author_newsfeed_cardBottom">
-        <h3 class="cardText_title">Titre de l'article</h3>
-        <p class="cardText_text">Il était une fois bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+        <h3 class="cardText_title"><%=story[i].title%></h3>
+        <p class="cardText_text"><%=story[i].text%></p>
         <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
       </div>
 
     </div>
 
-
-    <div class="author_newsfeed_card">
-
-      <div class="author_newsfeed_cardTop">
-        <div class="cardTop_banner">
-          <img src="/images/IMG_0088.JPG" class="cardTop_authorPic" alt="Profile picture" />
-          <div class="cardTop_infos">
-            <p class="cardTop_infos_authorName">Romain Mk</p>
-            <p class="cardTop_infos_storyDate">22 janvier 2018</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="author_newsfeed_cardBottom">
-          <h3 class="cardText_title">Titre de l'article</h3>
-          <p class="cardText_text">Il était une fois bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-          <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
-      </div>
-
-    </div>
-
-    <div class="author_newsfeed_card">
-
-      <div class="author_newsfeed_cardTop">
-        <div class="cardTop_banner">
-          <img src="/images/IMG_0088.JPG" class="cardTop_authorPic" alt="Profile picture" />
-          <div class="cardTop_infos">
-            <p class="cardTop_infos_authorName">Romain Mk</p>
-            <p class="cardTop_infos_storyDate">22 janvier 2018</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="author_newsfeed_cardBottom">
-          <h3 class="cardText_title">Titre de l'article</h3>
-          <p class="cardText_text">Il était une fois bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-          <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
-      </div>
-
-    </div>
-
-    <div class="author_newsfeed_card">
-
-      <div class="author_newsfeed_cardTop">
-        <div class="cardTop_banner">
-          <img src="/images/IMG_0088.JPG" class="cardTop_authorPic" alt="Profile picture" />
-          <div class="cardTop_infos">
-            <p class="cardTop_infos_authorName">Romain Mk</p>
-            <p class="cardTop_infos_storyDate">22 janvier 2018</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="author_newsfeed_cardBottom">
-          <h3 class="cardText_title">Titre de l'article</h3>
-          <p class="cardText_text">Il était une fois bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-          <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
-      </div>
-      
-    </div>
+  <% } %>
 
 </div>
 

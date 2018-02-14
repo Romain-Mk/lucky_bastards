@@ -1,37 +1,27 @@
 <%- include('../inc/header'); %>
 
-    <div id="admin_header">
-      <!-- <div id="admin_user_info">
-        <img class="user_pic_admin" src="/images/IMG_0088.JPG" alt="Photo user" />
-        <h2 class="user_name_admin">Romain Mk</h2>
-      </div>
-      <img class="home_logo" src="/images/elements/logo.svg" alt="Logo" /> -->
-    </div>
+<div id="admin_header"></div>
 
-    <div id="admin_navbar">
-      <h3>PROFILE INFORMATION</h3>
-      <h3>PREFERENCES</h3>
-      <h3>FAVORITES</h3>
-      <h3>ACCOUNT INFORMATION</h3>
-    </div>
+<div id="admin_navbar">
+  <h3>PROFILE INFORMATION</h3>
+  <h3>PREFERENCES</h3>
+  <h3>FAVORITES</h3>
+  <h3>ACCOUNT INFORMATION</h3>
+</div>
 
-    <!-- BODY -->
-    <div id="admin_profile_info_body">
+<div id="admin_profile_info_body">
 
+  <form encType="multipart/form-data" class="" action="/admin/account" method="post">
+    <input type="file" name="profilepic" value="">Choose a profile pic <br/>
+    <input type="text" name="facebook" value="" placeholder="Your Facebook URL">
+    <input type="text" name="twitter" value="" placeholder="Your Twitter URL">
+    <input type="text" name="instagram" value="" placeholder="Your Instagram URL">
+    <input type="text" name="website" value="" placeholder="Your website URL">
+    <input type="submit" name="" value="Modifier infos de profil">
+  </form>
 
-      <form encType="multipart/form-data" class="" action="/admin/account" method="post">
-       <input type="file" name="profilepic" value="">
-       <input type="text" name="facebook" value="" placeholder="Your Facebook URL">
-       <input type="text" name="twitter" value="" placeholder="Your Twitter URL">
-       <input type="text" name="instagram" value="" placeholder="Your Instagram URL">
-       <input type="text" name="website" value="" placeholder="Your website URL">
+  <a href="/admin/account/delete">Delete account</a>
 
-       <input type="submit" name="" value="Modifier infos de profil">
-     </form>
-
-    <a href="/admin/delete-account">Delete account</a>
-
-    </div>
-
+</div>
 
 <%- include('../inc/footer'); %>

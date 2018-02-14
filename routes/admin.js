@@ -5,6 +5,8 @@ var fileUpload = require('express-fileupload');
 var User = require('../models/user');
 var Story = require('../models/story');
 
+var auth = require('../controllers/auth');
+
 var log = false;
 
 // Pour appliquer la condition à l'ensemble des routes :
@@ -22,8 +24,13 @@ router.all('/*', function (req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  Story.find({}, function(err, stories){
-    res.render('admin/index', {stories, log});
+  var userId = req.session.userId;
+  User.findOne({_id: userId}, function(error, user) {
+    if (error) throw error;
+    Story.find({authorId: userId}).sort({createdAt: -1}).exec(function(err, stories) {
+      if (error) throw error;
+      res.render('admin/index', {stories, user, log});
+    });
   });
 });
 
@@ -44,49 +51,45 @@ router.post ('/account', function(req, res) {
   // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
   var fileName = userId;
 
-  console.log("tous les id "+ facebook, twitter, instagram, website +" ont été ajoutés");
-  console.log(userId);
-
   // Use the mv() method to place the file somewhere on your server
   profilepic.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
 
     User.update(
       {_id: userId},
-      {picture: fileName +'.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
+      {picture: fileName + '.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
       function(error, social) {
-          console.log(social)
-            res.render('admin/account', {log});
-          });
-    
+        res.render('admin/account', {log});
+      });
   });
 
 });
 
-// New story action
-router.route('/newstory')
+router.get('/account/delete', (req, res, next) => {
+  User.findOneAndRemove({_id: req.session.userId}, (error, user) => {
+    if (error) throw error;
+    auth.logout(req, res);
+  });
+});
 
+// New story
+router.route('/newstory')
   .get(function(req, res, next) {
     res.render('admin/newstory', {log});
   })
-
   .post(function(req, res, next) {
 
     var newStory = new Story ({
-      tag: null,
-      category: null,
       title: req.body.title,
       text: req.body.text_zone,
       img: null,
-      lang: null,
-      place: null,
-      authorId: null,
-      publish: null
+      authorId: req.session.userId,
+      authorName: req.session.userName,
+      authorPicture: req.session.userPicture
     });
 
     newStory.save(function(err, story) {
-      res.redirect('stories/' + story._id);
+      res.redirect('/admin');
     });
-
   });
 // End
 
@@ -95,17 +98,5 @@ router.get('/stories/:id', function(req, res, next) {
     res.render('admin/story', {story, log});
   });
 });
-
-router.get('/delete-account', function(req, res, next) {
-  var userId = req.session.userId;
-
-  User.remove(
-      {_id: userId},
-      function(error) {
-        res.render('index', {log});
-      }
-  );
-
-})
 
 module.exports = router;

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+var User = require('../models/user');
 var Story = require('../models/story');
 
 var log = false;
@@ -19,8 +20,12 @@ router.all('/*', function (req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  Story.find({}, function(err, stories) {
-    res.render('index', {stories, log});
+  User.find({}, function(error, user) {
+    if (error) throw error;
+      Story.find({}).sort({createdAt: -1}).exec(function(err, stories) {
+        if (err) throw err;
+        res.render('index', {stories, user, log});
+      });
   });
 });
 
@@ -32,9 +37,13 @@ router.get('/stories/:id', function(req, res, next) {
 });
 
 router.get('/authors/:id', function(req, res, next) {
-  Story.find({title: req.body.title, text: req.body.text_zone}, function (error, stories) {
-        res.render('author', {stories, title: req.body.title, text: req.body.text_zone, log});
-      });
+  var id = req.params.id;
+  User.findOne({_id: id}, function(error, user) {
+    Story.find({authorId: id}).sort({createdAt: -1}).exec(function(error, story) {
+      if (error) throw error;
+      res.render('author', {user, story, log});
+    });
+  });
 });
 
 module.exports = router;

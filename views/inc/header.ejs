@@ -1,7 +1,5 @@
 <!DOCTYPE>
-
 <html>
-
   <head>
     <meta charset="utf-8" />
     <title>Homepage</title>
@@ -14,27 +12,40 @@
     <link rel="stylesheet" href="/stylesheets/admin_account_profile_info.css">
     <link rel="stylesheet" href="/stylesheets/admin_story_step1.css">
   </head>
-
-
   <body>
 
     <div id="banner">
 
-      <div>
-        <img id="logo" src="/images/elements/logo.svg" />
+      <div id="lienLogo">
+        <a href="/"><img id="logo" src="/images/elements/logo.svg" /></a>
       </div>
-
-
 
         <div id="login_buttons">
           <% if (log) { %>
-            <a href="/logout" class="login_signup logout">Logout</a>
+            <div class="nav">
+              <ul id="menu">
+                <li class="menu_title">Menu
+                  <ul class="menu_deroulant">
+                    <li class="menu_links">
+                      <a href="/admin">My Stories</a>
+                    </li>
+                    <li  class="menu_links">
+                      <a href="/admin/account">My Account</a>
+                    </li>
+                    <li class="menu_links">
+                      <a href="/admin/newstory">Add a Story</a>
+                    </li>
+                    <li  class="menu_links">
+                      <a href="/logout">Logout</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           <% } else { %>
           <a href="/login" class="login_signup">Log in</a>
           <a href="/signup" class="login_signup">Sign up</a>
           <% } %>
         </div>
-
-
 
     </div>
