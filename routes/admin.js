@@ -71,19 +71,13 @@ router.route('/newstory')
   .post(function(req, res, next) {
 
     var newStory = new Story ({
-      tag: null,
-      category: null,
       title: req.body.title,
       text: req.body.text_zone,
       img: null,
-      lang: null,
-      place: null,
-      authorId: req.session.userId,
-      publish: null
+      authorId: req.session.userId
     });
 
     newStory.save(function(err, story) {
-      // res.json(story);
       res.redirect('/admin');
     });
   });
