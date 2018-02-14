@@ -136,4 +136,14 @@ span {
   padding-left: 1%;
   padding-right: 1%;
   padding-bottom: 2%;
+  height: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardText_text {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
