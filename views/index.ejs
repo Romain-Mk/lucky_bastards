@@ -45,15 +45,15 @@
           <div class="cardTop_banner">
             <a href="authors/<%= stories[i].authorId %>" class="home_cardTop_authorPic"><img src="/images/IMG_0088.JPG" alt="Profile picture" /></a>
             <div class="cardTop_infos">
-              <a href="authors/<%= stories[i].authorId %>" class="cardTop_infos_authorName">Romain Mk</a>
-              <p class="cardTop_infos_storyDate">22 janvier 2018</p>
+              <a href="authors/<%= stories[i].authorId %>" class="cardTop_infos_authorName">Author Name</a>
+              <p class="cardTop_infos_storyDate">Date</p>
             </div>
           </div>
         </div>
 
         <div class="home_newsfeed_cardBottom">
-          <h3 class="cardText_title">Titre de l'article</h3>
-          <p class="cardText_text">Il était une fois bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+          <h3 class="cardText_title"><%=stories[i].title%></h3>
+          <p class="cardText_text"><%=stories[i].text%></p>
           <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
         </div>
 
