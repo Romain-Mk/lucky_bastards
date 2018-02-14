@@ -55,10 +55,10 @@
 
           <div class="author_newsfeed_cardTop">
             <div class="cardTop_banner">
-              <img src="/images/IMG_0088.JPG" class="cardTop_authorPic" alt="Profile picture" />
+              <img src="/images/profilepics/<%=stories[i].authorPicture%>" class="cardTop_authorPic" alt="Profile picture" />
               <div class="cardTop_infos">
-                <p class="cardTop_infos_authorName">Romain Mk</p>
-                <p class="cardTop_infos_storyDate">22 janvier 2018</p>
+                <p class="cardTop_infos_authorName"><%= stories[i].authorName %></p>
+                <p class="cardTop_infos_storyDate"><%= stories[i].createdAt %></p>
               </div>
             </div>
           </div>

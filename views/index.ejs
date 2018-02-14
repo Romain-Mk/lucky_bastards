@@ -38,10 +38,10 @@
 
       <div class="home_newsfeed_cardTop">
         <div class="cardTop_banner">
-          <a href="authors/<%= stories[i].authorId %>" class="home_cardTop_authorPic"><img src="/images/IMG_0088.JPG" alt="Profile picture" /></a>
+          <a href="authors/<%= stories[i].authorId %>" class="home_cardTop_authorPic"><img src="/images/profilepics/<%=stories[i].authorPicture%>" alt="Profile picture" /></a>
           <div class="cardTop_infos">
-            <a href="authors/<%= stories[i].authorId %>" class="cardTop_infos_authorName">Author Name</a>
-            <p class="cardTop_infos_storyDate">Date</p>
+            <a href="authors/<%= stories[i].authorId %>" class="cardTop_infos_authorName"><%= stories[i].authorName %></a>
+            <p class="cardTop_infos_storyDate"><%= stories[i].createdAt %></p>
           </div>
         </div>
       </div>
