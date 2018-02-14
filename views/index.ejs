@@ -36,16 +36,16 @@
   <!-- NEWSFEED -->
 
   <div id="home_newsfeed">
-      
+
       <% for (var i=0; i<stories.length; i++) { %>
-      
+
       <div class="home_newsfeed_card">
 
         <div class="home_newsfeed_cardTop">
           <div class="cardTop_banner">
-            <img src="/images/IMG_0088.JPG" class="cardTop_authorPic" alt="Profile picture" />
+            <a href="authors/<%= stories[i].authorId %>" class="home_cardTop_authorPic"><img src="/images/IMG_0088.JPG" alt="Profile picture" /></a>
             <div class="cardTop_infos">
-              <p class="cardTop_infos_authorName">Romain Mk</p>
+              <a href="authors/<%= stories[i].authorId %>" class="cardTop_infos_authorName">Romain Mk</a>
               <p class="cardTop_infos_storyDate">22 janvier 2018</p>
             </div>
           </div>
