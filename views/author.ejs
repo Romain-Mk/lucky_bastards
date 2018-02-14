@@ -1,51 +1,49 @@
 <%- include('inc/header'); %>
 
-    <div id="profile_page_header">
-      <% if (user.picture) { %>
-        <img class="user_pic_profile" src="/images/profilepics/<%=user.picture%>" alt="Photo user" />
-      <% } else { %>
-        <img class="user_pic_profile" src="/images/profilepics/default.jpg" alt="Photo user" />
-      <% } %>
-      <h2 class="user_name_profile"><%= user.username %></h2>
-      <img src="/images/elements/add_as_favorite_author_button.svg"/>
-      <div class="social_media_profile">
-        <% if (user.fb) { %>
-          <a href="<%=user.fb%>" target="_blank">
-            <img class="social_media_icons" src="/images/elements/facebook_icon.svg"/>
-          </a>
-        <% } %>
-        <% if (user.twitter) { %>
-          <a href="<%=user.twitter%>" target="_blank">
-            <img class="social_media_icons" src="/images/elements/twitter_icon.svg"/>
-          </a>
-        <% } %>
-        <% if (user.insta) { %>
-          <a href="<%=user.insta%>" target="_blank">
-            <img class="social_media_icons" src="/images/elements/instagram_icon.svg"/>
-          </a>
-        <% } %>
-        <% if (user.blog) { %>
-          <a href="<%=user.blog%>" target="_blank">
-            <img class="social_media_icons" src="/images/elements/url_icon.svg"/>
-          </a>
-        <% } %>
-      </div>
-    </div>
+<div id="profile_page_header">
+  <% if (user.picture) { %>
+    <img class="user_pic_profile" src="/images/profilepics/<%=user.picture%>" alt="Photo user" />
+  <% } else { %>
+    <img class="user_pic_profile" src="/images/profilepics/default.jpg" alt="Photo user" />
+  <% } %>
+  <h2 class="user_name_profile"><%= user.username %></h2>
+  <img src="/images/elements/add_as_favorite_author_button.svg"/>
+  <div class="social_media_profile">
+    <% if (user.fb) { %>
+      <a href="<%=user.fb%>" target="_blank">
+        <img class="social_media_icons" src="/images/elements/facebook_icon.svg"/>
+      </a>
+    <% } %>
+    <% if (user.twitter) { %>
+      <a href="<%=user.twitter%>" target="_blank">
+        <img class="social_media_icons" src="/images/elements/twitter_icon.svg"/>
+      </a>
+    <% } %>
+    <% if (user.insta) { %>
+      <a href="<%=user.insta%>" target="_blank">
+        <img class="social_media_icons" src="/images/elements/instagram_icon.svg"/>
+      </a>
+    <% } %>
+    <% if (user.blog) { %>
+      <a href="<%=user.blog%>" target="_blank">
+        <img class="social_media_icons" src="/images/elements/url_icon.svg"/>
+      </a>
+    <% } %>
+  </div>
+</div>
 
-    <div id="user_stories_navbar">
-      <div class="navbar_stories">
-        <h3>STORIES</h3>
-        <span class="number">17</span>
-      </div>
-      <div class="navbar_pictures">
-        <h3>PICTURES</h3>
-        <span class="number">45</span>
-      </div>
-      <h3>STORY MAP</h3>
-      <h3>ABOUT ME</h3>
-    </div>
-
-<!-- NEWSFEED -->
+<div id="user_stories_navbar">
+  <div class="navbar_stories">
+    <h3>STORIES</h3>
+    <span class="number">17</span>
+  </div>
+  <div class="navbar_pictures">
+    <h3>PICTURES</h3>
+    <span class="number">45</span>
+  </div>
+  <h3>STORY MAP</h3>
+  <h3>ABOUT ME</h3>
+</div>
 
 <div id="author_newsfeed">
 
