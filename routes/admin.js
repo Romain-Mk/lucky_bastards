@@ -5,6 +5,8 @@ var fileUpload = require('express-fileupload');
 var User = require('../models/user');
 var Story = require('../models/story');
 
+var auth = require('../controllers/auth');
+
 var log = false;
 
 // Pour appliquer la condition à l'ensemble des routes :
@@ -62,6 +64,13 @@ router.post ('/account', function(req, res) {
 
 });
 
+router.get('/account/delete', (req, res, next) => {
+  User.findOneAndRemove({_id: req.session.userId}, (error, user) => {
+    if (error) throw error;
+    auth.logout(req, res);
+  });
+});
+
 // New story
 router.route('/newstory')
   .get(function(req, res, next) {
@@ -87,13 +96,6 @@ router.route('/newstory')
 router.get('/stories/:id', function(req, res, next) {
   Story.findOne({_id: req.params.id}, function (error, story) {
     res.render('admin/story', {story, log});
-  });
-});
-
-router.get('/delete-account', function(req, res, next) {
-  var userId = req.session.userId;
-  User.remove({_id: userId}, function(error) {
-    res.render('index', {log});
   });
 });
 
