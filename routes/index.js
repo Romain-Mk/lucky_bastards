@@ -20,7 +20,8 @@ router.all('/*', function (req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  Story.find({}, function(err, stories) {
+  Story.find({}).sort({createdAt: -1}).exec(function(err, stories) {
+    if (err) throw err;
     res.render('index', {stories, log});
   });
 });
