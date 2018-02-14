@@ -22,15 +22,13 @@ router.all('/*', function (req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-
   User.findOne({_id: req.session.userId}, function(error, user) {
     if (error) throw error;
-    Story.find({}, function(err, stories){
+    Story.find({}).sort({createdAt: -1}).exec(function(err, stories) {
       if (error) throw error;
       res.render('admin/index', {stories, user, log});
     });
   });
-
 });
 
 router.get('/account', function(req, res, next) {
