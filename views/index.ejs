@@ -39,7 +39,11 @@
       <div class="home_newsfeed_cardTop">
         <div class="cardTop_banner">
           <a href="authors/<%= stories[i].authorId %>" class="home_cardTop_authorPic">
-            <img src="/images/profilepics/<%=stories[i].authorPicture%>" alt="Profile picture" />
+            <% if (stories[i].authorPicture) { %>
+              <img class="user_pic_profile" src="/images/profilepics/<%=stories[i].authorPicture%>" alt="Photo user" />
+            <% } else { %>
+              <img class="user_pic_profile" src="/images/profilepics/default.jpg" alt="Photo user" />
+            <% } %>
           </a>
           <div class="cardTop_infos">
             <a href="authors/<%= stories[i].authorId %>" class="cardTop_infos_authorName"><%= stories[i].authorName %></a>

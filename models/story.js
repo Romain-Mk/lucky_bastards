@@ -6,7 +6,7 @@ var storySchema = mongoose.Schema({
   img: String,
   authorId: String,
   authorName: String,
-  authorPicture: String
+  authorPicture: {type:String, default: null}
 }, {timestamps: true});
 
 module.exports = mongoose.model('stories', storySchema);

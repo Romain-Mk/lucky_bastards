@@ -53,7 +53,11 @@
 
       <div class="author_newsfeed_cardTop">
         <div class="cardTop_banner">
-          <img src="/images/profilepics/<%=story[i].authorPicture%>" class="cardTop_authorPic" alt="Profile picture" />
+          <% if (story[i].authorPicture) { %>
+            <img class="user_pic_profile" src="/images/profilepics/<%=story[i].authorPicture%>" alt="Photo user" />
+          <% } else { %>
+            <img class="user_pic_profile" src="/images/profilepics/default.jpg" alt="Photo user" />
+          <% } %>
           <div class="cardTop_infos">
             <p class="cardTop_infos_authorName"><%= story[i].authorName %></p>
             <p class="cardTop_infos_storyDate"><%= story[i].createdAt %></p>

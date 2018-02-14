@@ -20,9 +20,12 @@ router.all('/*', function (req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  Story.find({}).sort({createdAt: -1}).exec(function(err, stories) {
-    if (err) throw err;
-    res.render('index', {stories, log});
+  User.find({}, function(error, user) {
+    if (error) throw error;
+      Story.find({}).sort({createdAt: -1}).exec(function(err, stories) {
+        if (err) throw err;
+        res.render('index', {stories, user, log});
+      });
   });
 });
 
