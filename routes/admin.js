@@ -23,9 +23,15 @@ router.all('/*', function (req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  Story.find({}, function(err, stories){
-    res.render('admin/index', {stories, log});
+
+  User.findOne({_id: req.session.userId}, function(error, user) {
+    if (error) throw error;
+    Story.find({}, function(err, stories){
+      if (error) throw error;
+      res.render('admin/index', {stories, user, log});
+    });
   });
+
 });
 
 router.get('/account', function(req, res, next) {
@@ -45,20 +51,16 @@ router.post ('/account', function(req, res) {
   // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
   var fileName = userId;
 
-  console.log("tous les id "+ facebook, twitter, instagram, website +" ont été ajoutés");
-  console.log(userId);
-
   // Use the mv() method to place the file somewhere on your server
   profilepic.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
 
     User.update(
       {_id: userId},
-      {picture: fileName +'.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
+      {picture: fileName + '.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
       function(error, social) {
-          console.log(social)
             res.render('admin/account', {log});
           });
-
+      });
   });
 
 });
@@ -105,13 +107,13 @@ router.get('/delete-account', function(req, res, next) {
       function(error) {
         res.render('index', {log});
       });
-})
+});
 
 router.get('/newstory/:id', function (req, res, next) {
   Story.findOne({_id: req.params.id}, function (error, storyContent) {
     res.render('admin/newstory', {storyContent, log});
   });
-})
+});
 
 router.get('/delete-stories/:id', function (req, res, next) {
   Story.remove({_id: req.params.id}, function (error, stories) {
@@ -119,6 +121,6 @@ router.get('/delete-stories/:id', function (req, res, next) {
       res.render('admin/index', { stories, log});
     });
   });
-})
+});
 
 module.exports = router;

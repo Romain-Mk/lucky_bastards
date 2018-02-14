@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="utf-8" />
-      <title>Login</title>
-  <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-      <link rel="stylesheet" href="/stylesheets/login.css">
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/login.css">
   </head>
   <body>
+
     <div id="lienLogo">
-        <a href="/"><img id="logo" src="/images/elements/logo.svg" /></a>
+      <a href="/">
+        <img id="logo" src="/images/elements/logo.svg" />
+      </a>
     </div>
+
     <div class="pageLogin">
 
-    <h1>Login</h1>
-    <form action="/login" method="post">
-      <input type="email" name="email" placeholder="Votre email" required>
-      <input type="password" name="password" placeholder="Votre mot de passe" required>
-      <input type="submit" name="submit" value="Valider" class="validate">
-    </form>
-  </div>
+      <h1>Login</h1>
+
+      <% if (feedback) { %>
+        <ul>
+            <li><%= feedback %></li>
+        </ul>
+      <% } %>
+
+      <% if (errors) { %>
+        <ul>
+          <% errors.forEach(function(error){ %>
+            <li><%= error.msg %></li>
+          <% }); %>
+        </ul>
+      <% } %>
+
+      <form action="/login/<%= from %>" method="post">
+        <input type="email" name="email" placeholder="Your email" value="" required>
+        <input type="password" name="password" placeholder="Your Password" value="" required>
+        <input type="submit" class="validate" name="submit" value="Validate">
+      </form>
+
+      <span class="renvoiSignupLogin">Don't have any account ? <a href="/signup">click here</a></span>
+
+    </div>
+
   </body>
 </html>

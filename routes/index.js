@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+var User = require('../models/user');
 var Story = require('../models/story');
 
 var log = false;
@@ -32,9 +33,15 @@ router.get('/stories/:id', function(req, res, next) {
 });
 
 router.get('/authors/:id', function(req, res, next) {
-  Story.find({title: req.body.title, text: req.body.text_zone}, function (error, stories) {
-        res.render('author', {stories, title: req.body.title, text: req.body.text_zone, log});
-      });
+
+  User.findOne({_id: req.params.id}, function(error, user) {
+    if (error) throw error;
+    Story.find({}, function(error, story) {
+      if (error) throw error;
+      res.render('author', {user, story, log});
+    });
+  });
+
 });
 
 module.exports = router;

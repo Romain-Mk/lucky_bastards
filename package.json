@@ -15,6 +15,7 @@
     "express": "~4.15.5",
     "express-fileupload": "^0.4.0",
     "express-session": "^1.15.6",
+    "express-validator": "^5.0.0",
     "mongoose": "^5.0.3",
     "mongoose-bcrypt": "^1.5.0",
     "morgan": "~1.9.0",
