@@ -1,7 +1,7 @@
 <%- include('../inc/header'); %>
 
 <div id="profile_page_header">
-  
+
   <% if (user.picture) { %>
     <img class="user_pic_profile" src="/images/profilepics/<%=user.picture%>" alt="Photo user" />
   <% } else { %>
@@ -53,8 +53,11 @@
   <% for (var i = 0; i < stories.length; i++) { %>
 
     <div class="author_newsfeed_card">
-
-      <div class="author_newsfeed_cardTop">
+      <% if (stories[i].imgType) { %>
+        <div class="author_newsfeed_cardTop" style="background-image:url(../images/storypics/<%=stories[i].id+'.'+stories[i].imgType%>);">
+      <% } else { %>
+        <div class="author_newsfeed_cardTop" style="background-image:url(../images/car-1093927_1920.jpg);">
+      <% } %>
         <div class="cardTop_banner">
           <% if (stories[i].authorPicture) { %>
             <img class="user_pic_profile" src="/images/profilepics/<%=stories[i].authorPicture%>" alt="Photo user" />

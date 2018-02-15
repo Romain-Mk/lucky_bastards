@@ -51,7 +51,12 @@
 
     <div class="author_newsfeed_card">
 
-      <div class="author_newsfeed_cardTop">
+      <% if (story[i].imgType) { %>
+        <div class="author_newsfeed_cardTop" style="background-image:url(../images/storypics/<%=story[i].id+'.'+story[i].imgType%>);">
+      <% } else { %>
+        <div class="author_newsfeed_cardTop" style="background-image:url(../images/car-1093927_1920.jpg);">
+      <% } %>
+
         <div class="cardTop_banner">
           <% if (story[i].authorPicture) { %>
             <img class="user_pic_profile" src="/images/profilepics/<%=story[i].authorPicture%>" alt="Photo user" />
