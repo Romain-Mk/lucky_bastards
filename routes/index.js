@@ -39,9 +39,9 @@ router.get('/stories/:id', function(req, res, next) {
 router.get('/authors/:id', function(req, res, next) {
   var id = req.params.id;
   User.findOne({_id: id}, function(error, user) {
-    Story.find({authorId: id}).sort({createdAt: -1}).exec(function(error, story) {
+    Story.find({authorId: id}).sort({createdAt: -1}).exec(function(error, stories) {
       if (error) throw error;
-      res.render('author', {user, story, log});
+      res.render('author', {user, stories, log});
     });
   });
 });

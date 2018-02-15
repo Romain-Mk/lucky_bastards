@@ -1,0 +1,31 @@
+<%- include('../inc/header'); %>
+
+  <div id="publication_header"></div>
+
+  <div id="publication_body">
+
+    <div id="side_bar">
+      <img src="/images/elements/create_publication_side_bar_1.svg" />
+    </div>
+
+    <div id="steps">
+
+      <div id="step1">
+        <h2>TELL US YOUR STORY</h2>
+        <form action="/admin/stories/<%= story._id %>" method="post">
+          <div>
+            <label>Title of your story</label><br>
+            <input type="text" name="title" value="<%= story.title %>" placeholder="Exemple: Winter in L.A">
+          </div>
+          <div>
+            <label>Describe your story</label><br>
+            <textarea name="text" rows="3"><%= story.text %></textarea>
+          </div>
+          <input type="submit" name="update" value="Update">
+        </form>
+
+    </div>
+
+  </div>
+
+<%- include('../inc/footer'); %>

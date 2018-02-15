@@ -59,6 +59,8 @@
         <div class="author_newsfeed_cardTop" style="background-image:url(../images/car-1093927_1920.jpg);">
       <% } %>
         <div class="cardTop_banner">
+          <a href="/admin/stories/<%= stories[i]._id %>/delete">Delete</a>
+          <a href="/admin/stories/<%= stories[i]._id %>">Update</a>
           <% if (stories[i].authorPicture) { %>
             <img class="user_pic_profile" src="/images/profilepics/<%=stories[i].authorPicture%>" alt="Photo user" />
           <% } else { %>
@@ -70,13 +72,15 @@
           </div>
         </div>
       </div>
-
+      
       <div class="author_newsfeed_cardBottom">
         <h3 class="cardText_title"><%=stories[i].title%></h3>
-        <p class="cardText_text"><%=stories[i].text%></p>
-        <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
-      </div>
-
+        <div class="div_cardText_text">
+          <p class="cardText_text"><%=stories[i].text%></p>
+        </div>
+        <a href="stories/<%= stories[i]._id %>">
+          <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
+        </a>
     </div>
 
   <% } %>

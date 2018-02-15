@@ -34,35 +34,77 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/account', function(req, res, next) {
-  res.render('admin/account', {log});
-});
+// Account
+router.route('/account')
+  .get((req, res) => {
+    res.render('admin/account', {log});
+  })
+  .post ((req, res) => {
 
-router.post ('/account', function(req, res) {
-  var facebook = req.body.facebook;
-  var twitter = req.body.twitter;
-  var instagram = req.body.instagram;
-  var website = req.body.website;
-  var userId = req.session.userId;
+    var userId = req.session.userId;
+    var profilepic = req.files.profilepic;
+    var picture = null;
 
-  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-  var profilepic = req.files.profilepic;
-  // Pour l'instant on nomme toutes les images enregistrées img.jpg, après on pourra utiliser req.session.user._id
-  // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
-  var fileName = userId;
+    if (profilepic) { // If picture uploaded
 
-  // Use the mv() method to place the file somewhere on your server
-  profilepic.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
+      var ext = profilepic.mimetype;
 
-    User.update(
-      {_id: userId},
-      {picture: fileName + '.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
-      function(error, social) {
-        res.render('admin/account', {log});
-      });
+      switch(ext) {
+        case 'image/jpeg':
+          ext = '.jpg';
+          break;
+        case 'image/gif':
+          ext = '.gif';
+          break;
+        case 'image/png':
+          ext = '.png';
+          break;
+        default:
+          ext = '.jpg';
+      }
+
+      picture = userId + ext;
+
+    } else { // If no picture uploaded
+
+      picture = null;
+
+    }
+
+    var data = {
+      picture: picture,
+      facebook: req.body.facebook,
+      twitter: req.body.twitter,
+      instagram: req.body.instagram,
+      website: req.body.website
+    }
+
+    if (profilepic) { // If picture uploaded
+      profilepic.mv('./public/images/profilepics/' + data.picture)
+        .then (account => {
+          updateAccount(userId, data, res);
+        })
+        .catch(err => {
+          res.status(400).json(err);
+        });
+
+    } else { // If no picture uploaded
+      updateAccount(userId, data, res);
+    }
+
   });
 
-});
+function updateAccount(userId, data, res) {
+
+  User.findByIdAndUpdate({_id: userId}, data)
+    .then(account => {
+      res.redirect('/admin');
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+
+}
 
 router.get('/account/delete', (req, res, next) => {
   User.findOneAndRemove({_id: req.session.userId}, (error, user) => {
@@ -70,6 +112,7 @@ router.get('/account/delete', (req, res, next) => {
       auth.logout(req, res);
   });
 });
+// End
 
 // New story
 router.route('/newstory')
@@ -110,7 +153,6 @@ router.route('/newstory')
 
 
     // la condition suivante permet l'enregistrement de la story même sans img renseignée
-
     var newStory = new Story ({
       title: req.body.title,
       text: req.body.text_zone,
@@ -119,7 +161,7 @@ router.route('/newstory')
       authorName: req.session.userName,
       authorPicture: req.session.userPicture,
     });
-
+  
     if (img) { // If picture uploaded
 
       newStory.save(function(err, story) {
@@ -137,11 +179,39 @@ router.route('/newstory')
   });
 // End
 
+// See & update story
+router.route('/stories/:id')
+  .get((req, res) => {
+    Story.findById({_id: req.params.id})
+      .then(story => {
+        res.render('admin/story', {story, log});
+      })
+      .catch(error => {
+        res.status(400).json(err);
+      });
+  })
+  .post((req, res) => {
 
+    let data = {
+      title: req.body.title,
+      text: req.body.text
+    };
 
-router.get('/stories/:id', function(req, res, next) {
-  Story.findOne({_id: req.params.id}, function (error, story) {
-    res.render('admin/story', {story, log});
+    Story.findByIdAndUpdate({ _id: req.params.id }, data)
+      .then(story => {
+          res.redirect('/admin');
+      })
+      .catch(error => {
+        res.status(400).json(err);
+      });
+
+  });
+// End
+
+router.get('/stories/:id/delete', (req, res, next) => {
+  Story.findOneAndRemove({_id: req.params.id}, (error, user) => {
+    if (error) throw error;
+    res.redirect('/admin');
   });
 });
 
