@@ -63,6 +63,8 @@ function login(req, res, next) {
           if (match === true) {
             // password matches
             req.session.userId = user[0]._id;
+            req.session.userName = user[0].username;
+            req.session.userPicture = user[0].picture;
 
             if (req.params.from === 'addbutton') {
               res.redirect('/admin/newstory');
