@@ -47,28 +47,28 @@
 
 <div id="author_newsfeed">
 
-  <% for (var i=0; i<story.length; i++) { %>
+  <% for (var i = 0; i < stories.length; i++) { %>
 
     <div class="author_newsfeed_card">
 
       <div class="author_newsfeed_cardTop">
         <div class="cardTop_banner">
-          <% if (story[i].authorPicture) { %>
-            <img class="user_pic_profile" src="/images/profilepics/<%=story[i].authorPicture%>" alt="Photo user" />
+          <% if (stories[i].authorPicture) { %>
+            <img class="user_pic_profile" src="/images/profilepics/<%= stories[i].authorPicture %>" alt="Photo user" />
           <% } else { %>
             <img class="user_pic_profile" src="/images/profilepics/default.jpg" alt="Photo user" />
           <% } %>
           <div class="cardTop_infos">
-            <p class="cardTop_infos_authorName"><%= story[i].authorName %></p>
-            <p class="cardTop_infos_storyDate"><%= story[i].createdAt %></p>
+            <p class="cardTop_infos_authorName"><%= stories[i].authorName %></p>
+            <p class="cardTop_infos_storyDate"><%= stories[i].createdAt %></p>
           </div>
         </div>
       </div>
 
       <div class="author_newsfeed_cardBottom">
-        <h3 class="cardText_title"><%=story[i].title%></h3>
+        <h3 class="cardText_title"><%= stories[i].title %></h3>
         <div class="div_cardText_text">
-          <p class="cardText_text"><%=story[i].text%></p>
+          <p class="cardText_text"><%= stories[i].text %></p>
         </div>
         <a href="stories/<%= stories[i]._id %>"> <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" /> </a>
       </div>
