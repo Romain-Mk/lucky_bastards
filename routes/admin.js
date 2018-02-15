@@ -37,7 +37,10 @@ router.get('/', function(req, res, next) {
 // Account
 router.route('/account')
   .get((req, res) => {
-    res.render('admin/account', {log});
+    User.findById({_id: req.session.userId}, function(err, user) {
+      if (err) throw err;
+      res.render('admin/account', {user, log});
+    });
   })
   .post ((req, res) => {
 
@@ -67,7 +70,7 @@ router.route('/account')
 
     } else { // If no picture uploaded
 
-      picture = null;
+      picture = req.body.profilepic_hidden;
 
     }
 
@@ -80,13 +83,10 @@ router.route('/account')
     }
 
     if (profilepic) { // If picture uploaded
-      profilepic.mv('./public/images/profilepics/' + data.picture)
-        .then (account => {
-          updateAccount(userId, data, res);
-        })
-        .catch(err => {
-          res.status(400).json(err);
-        });
+      profilepic.mv('./public/images/profilepics/' + data.picture, (error, user) => {
+        if (error) throw error;
+        updateAccount(userId, data, res);
+      });
 
     } else { // If no picture uploaded
       updateAccount(userId, data, res);
@@ -96,13 +96,10 @@ router.route('/account')
 
 function updateAccount(userId, data, res) {
 
-  User.findByIdAndUpdate({_id: userId}, data)
-    .then(account => {
-      res.redirect('/admin');
-    })
-    .catch(err => {
-      res.status(400).json(err);
-    });
+  User.findByIdAndUpdate({_id: userId}, data, (error, user) => {
+    if (error) throw error;
+    res.redirect('/admin');
+  });
 
 }
 
