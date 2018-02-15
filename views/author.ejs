@@ -67,8 +67,10 @@
 
       <div class="author_newsfeed_cardBottom">
         <h3 class="cardText_title"><%=story[i].title%></h3>
-        <p class="cardText_text"><%=story[i].text%></p>
-        <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" />
+        <div class="div_cardText_text">
+          <p class="cardText_text"><%=story[i].text%></p>
+        </div>
+        <a href="stories/<%= stories[i]._id %>"> <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" /> </a>
       </div>
 
     </div>
