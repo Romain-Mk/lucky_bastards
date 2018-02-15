@@ -34,35 +34,113 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/account', function(req, res, next) {
-  res.render('admin/account', {log});
-});
+// router.get('/account', function(req, res, next) {
+//   res.render('admin/account', {log});
+// });
+//
+// router.post ('/account', function(req, res) {
+//   var facebook = req.body.facebook;
+//   var twitter = req.body.twitter;
+//   var instagram = req.body.instagram;
+//   var website = req.body.website;
+//   var userId = req.session.userId;
+//
+//   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+//   var profilepic = req.files.profilepic;
+//   // Pour l'instant on nomme toutes les images enregistrées img.jpg, après on pourra utiliser req.session.user._id
+//   // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
+//   var fileName = userId;
+//
+//   // Use the mv() method to place the file somewhere on your server
+//   profilepic.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
+//
+//     User.update(
+//       {_id: userId},
+//       {picture: fileName + '.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
+//       function(error, social) {
+//         res.render('admin/account', {log});
+//       });
+//   });
+//
+// });
 
-router.post ('/account', function(req, res) {
-  var facebook = req.body.facebook;
-  var twitter = req.body.twitter;
-  var instagram = req.body.instagram;
-  var website = req.body.website;
-  var userId = req.session.userId;
 
-  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-  var profilepic = req.files.profilepic;
-  // Pour l'instant on nomme toutes les images enregistrées img.jpg, après on pourra utiliser req.session.user._id
-  // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
-  var fileName = userId;
 
-  // Use the mv() method to place the file somewhere on your server
-  profilepic.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
+// Account
+router.route('/account')
+  .get((req, res) => {
+    res.render('admin/account', {log});
+  })
+  .post ((req, res) => {
 
-    User.update(
-      {_id: userId},
-      {picture: fileName + '.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
-      function(error, social) {
-        res.render('admin/account', {log});
-      });
+    var userId = req.session.userId;
+    var profilepic = req.files.profilepic;
+    var picture = null;
+
+    if (profilepic) { // If picture uploaded
+
+      var ext = profilepic.mimetype;
+
+      switch(ext) {
+        case 'image/jpeg':
+          ext = '.jpg';
+          break;
+        case 'image/gif':
+          ext = '.gif';
+          break;
+        case 'image/png':
+          ext = '.png';
+          break;
+        default:
+          ext = '.jpg';
+      }
+
+      picture = userId + ext;
+
+    } else { // If no picture uploaded
+
+      picture = null;
+
+    }
+
+    var data = {
+      picture: picture,
+      facebook: req.body.facebook,
+      twitter: req.body.twitter,
+      instagram: req.body.instagram,
+      website: req.body.website
+    }
+
+    if (profilepic) { // If picture uploaded
+      profilepic.mv('./public/images/profilepics/' + data.picture)
+        .then (account => {
+          updateAccount(userId, data, res);
+        })
+        .catch(err => {
+          res.status(400).json(err);
+        });
+
+    } else { // If no picture uploaded
+      updateAccount(userId, data, res);
+    }
+
   });
 
-});
+function updateAccount(userId, data, res) {
+
+  User.findByIdAndUpdate({_id: userId}, data)
+    .then(account => {
+      res.redirect('/admin');
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+
+}
+// End
+
+
+
 
 router.get('/account/delete', (req, res, next) => {
   User.findOneAndRemove({_id: req.session.userId}, (error, user) => {
