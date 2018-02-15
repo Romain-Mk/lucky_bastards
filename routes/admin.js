@@ -109,7 +109,7 @@ function updateAccount(userId, data, res) {
 router.get('/account/delete', (req, res, next) => {
   User.findOneAndRemove({_id: req.session.userId}, (error, user) => {
     if (error) throw error;
-    auth.logout(req, res);
+      auth.logout(req, res);
   });
 });
 // End
@@ -121,18 +121,60 @@ router.route('/newstory')
   })
   .post(function(req, res, next) {
 
+
+    var img = req.files.storypic;
+    var imgType = null;
+
+    if (img) { // If picture uploaded
+
+          var ext = img.mimetype;
+
+          switch(ext) {
+            case 'image/jpeg':
+              ext = 'jpg';
+              break;
+            case 'image/gif':
+              ext = 'gif';
+              break;
+            case 'image/png':
+              ext = 'png';
+              break;
+            default:
+              ext = 'jpg';
+          }
+
+          imgType= ext;
+
+        } else { // If no picture uploaded
+
+          imgType = null;
+
+        }
+
+
+    // la condition suivante permet l'enregistrement de la story même sans img renseignée
     var newStory = new Story ({
       title: req.body.title,
       text: req.body.text_zone,
-      img: null,
+      imgType: imgType,
       authorId: req.session.userId,
       authorName: req.session.userName,
-      authorPicture: req.session.userPicture
+      authorPicture: req.session.userPicture,
     });
+  
+    if (img) { // If picture uploaded
 
-    newStory.save(function(err, story) {
-      res.redirect('/admin');
-    });
+      newStory.save(function(err, story) {
+        img.mv('./public/images/storypics/' + story.id+'.'+story.imgType , function(err){
+          res.redirect('/admin');
+        });
+      });
+
+    } else { // If no picture uploaded
+      newStory.save(function(err, story) {
+        res.redirect('/admin');
+      });
+    }
 
   });
 // End

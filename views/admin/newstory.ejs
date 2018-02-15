@@ -13,7 +13,7 @@
       <div id="step1">
         <h2>TELL US YOUR STORY</h2>
         <!-- <form action="/admin/newstory" method="POST"> -->
-        <form action="/admin/newstory" method="POST">
+        <form encType="multipart/form-data" action="/admin/newstory" method="POST">
           <div>
             <label>Title of your story</label><br>
             <input type="text" name="title" value="" placeholder="Exemple: Winter in L.A">
@@ -21,6 +21,9 @@
           <div>
             <label>Describe your story</label><br>
             <textarea name="text_zone" rows="3"></textarea>
+          </div>
+          <div>
+            <input type="file" name="storypic" value=""> <br/>
           </div>
           <input type="submit" name="publish" value="Publish" />
         </form>

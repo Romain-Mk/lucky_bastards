@@ -36,7 +36,11 @@
 
     <div class="home_newsfeed_card">
 
-      <div class="home_newsfeed_cardTop">
+    <% if (stories[i].imgType) { %>
+      <div class="author_newsfeed_cardTop" style="background-image:url(../images/storypics/<%=stories[i].id+'.'+stories[i].imgType%>);">
+    <% } else { %>
+      <div class="home_newsfeed_cardTop" style="background-image:url(../images/car-1093927_1920.jpg);">
+    <% } %>
         <div class="cardTop_banner">
           <a href="authors/<%= stories[i].authorId %>" class="home_cardTop_authorPic">
             <% if (stories[i].authorPicture) { %>
