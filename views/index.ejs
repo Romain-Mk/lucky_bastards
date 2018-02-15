@@ -6,10 +6,6 @@
   <div class="homepage_title_zone">
     <h1 class="homepage_title">Lucky Bastards</h1>
     <h2 class="homepage_subtitle">The weirdest, craziest, funniest and most unusual travel stories</h2>
-    <!-- <div id="home_icons">
-      <img id="facebook_icon" src ="Facebook Icon.png" alt="facebook_icon" />
-      <img id="instagram_icon" src ="Instagram Icon.png" alt="instagram_icon" />
-    </div> -->
   </div>
 
   <div id="scroll">
@@ -39,7 +35,7 @@
     <% if (stories[i].imgType) { %>
       <div class="author_newsfeed_cardTop" style="background-image:url(../images/storypics/<%=stories[i].id+'.'+stories[i].imgType%>);">
     <% } else { %>
-      <div class="home_newsfeed_cardTop" style="background-image:url(../images/car-1093927_1920.jpg);">
+      <div class="home_newsfeed_cardTop" style="background-image:url(../images/storypics/bg-default.jpg);">
     <% } %>
         <div class="cardTop_banner">
           <a href="authors/<%= stories[i].authorId %>" class="home_cardTop_authorPic">
