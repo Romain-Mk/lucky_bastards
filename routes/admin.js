@@ -34,34 +34,77 @@ router.get('/', function(req, res, next) {
   });
 });
 
+// Account
 router.route('/account')
-  .get(function(req, res, next) {
+  .get((req, res) => {
     res.render('admin/account', {log});
   })
-  .post(function(req, res) {
-    var facebook = req.body.facebook;
-    var twitter = req.body.twitter;
-    var instagram = req.body.instagram;
-    var website = req.body.website;
+  .post ((req, res) => {
+
     var userId = req.session.userId;
-
-    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
     var profilepic = req.files.profilepic;
-    // Pour l'instant on nomme toutes les images enregistrées img.jpg, après on pourra utiliser req.session.user._id
-    // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
-    var fileName = userId;
+    var picture = null;
 
-    // Use the mv() method to place the file somewhere on your server
-    profilepic.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
+    if (profilepic) { // If picture uploaded
 
-      User.update(
-        {_id: userId},
-        {picture: fileName + '.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
-        function(error, social) {
-          res.render('admin/account', {log});
+      var ext = profilepic.mimetype;
+
+      switch(ext) {
+        case 'image/jpeg':
+          ext = '.jpg';
+          break;
+        case 'image/gif':
+          ext = '.gif';
+          break;
+        case 'image/png':
+          ext = '.png';
+          break;
+        default:
+          ext = '.jpg';
+      }
+
+      picture = userId + ext;
+
+    } else { // If no picture uploaded
+
+      picture = null;
+
+    }
+
+    var data = {
+      picture: picture,
+      facebook: req.body.facebook,
+      twitter: req.body.twitter,
+      instagram: req.body.instagram,
+      website: req.body.website
+    }
+
+    if (profilepic) { // If picture uploaded
+      profilepic.mv('./public/images/profilepics/' + data.picture)
+        .then (account => {
+          updateAccount(userId, data, res);
+        })
+        .catch(err => {
+          res.status(400).json(err);
         });
-    });
+
+    } else { // If no picture uploaded
+      updateAccount(userId, data, res);
+    }
+
   });
+
+function updateAccount(userId, data, res) {
+
+  User.findByIdAndUpdate({_id: userId}, data)
+    .then(account => {
+      res.redirect('/admin');
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+
+}
 
 router.get('/account/delete', (req, res, next) => {
   User.findOneAndRemove({_id: req.session.userId}, (error, user) => {
@@ -69,6 +112,7 @@ router.get('/account/delete', (req, res, next) => {
     auth.logout(req, res);
   });
 });
+// End
 
 // New story
 router.route('/newstory')
