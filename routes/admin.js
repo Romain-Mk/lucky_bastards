@@ -34,42 +34,82 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/account', function(req, res, next) {
-  res.render('admin/account', {log});
-});
+// Account
+router.route('/account')
+  .get((req, res) => {
+    User.findById({_id: req.session.userId}, function(err, user) {
+      if (err) throw err;
+      res.render('admin/account', {user, log});
+    });
+  })
+  .post ((req, res) => {
 
-router.post ('/account', function(req, res) {
-  var facebook = req.body.facebook;
-  var twitter = req.body.twitter;
-  var instagram = req.body.instagram;
-  var website = req.body.website;
-  var userId = req.session.userId;
+    var userId = req.session.userId;
+    var profilepic = req.files.profilepic;
+    var picture = null;
 
-  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-  var profilepic = req.files.profilepic;
-  // Pour l'instant on nomme toutes les images enregistrées img.jpg, après on pourra utiliser req.session.user._id
-  // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
-  var fileName = userId;
+    if (profilepic) { // If picture uploaded
 
-  // Use the mv() method to place the file somewhere on your server
-  profilepic.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
+      var ext = profilepic.mimetype;
 
-    User.update(
-      {_id: userId},
-      {picture: fileName + '.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
-      function(error, social) {
-        res.render('admin/account', {log});
+      switch(ext) {
+        case 'image/jpeg':
+          ext = '.jpg';
+          break;
+        case 'image/gif':
+          ext = '.gif';
+          break;
+        case 'image/png':
+          ext = '.png';
+          break;
+        default:
+          ext = '.jpg';
+      }
+
+      picture = userId + ext;
+
+    } else { // If no picture uploaded
+
+      picture = req.body.profilepic_hidden;
+
+    }
+
+    var data = {
+      picture: picture,
+      facebook: req.body.facebook,
+      twitter: req.body.twitter,
+      instagram: req.body.instagram,
+      website: req.body.website
+    }
+
+    if (profilepic) { // If picture uploaded
+      profilepic.mv('./public/images/profilepics/' + data.picture, (error, user) => {
+        if (error) throw error;
+        updateAccount(userId, data, res);
       });
+
+    } else { // If no picture uploaded
+      updateAccount(userId, data, res);
+    }
+
   });
 
-});
+function updateAccount(userId, data, res) {
+
+  User.findByIdAndUpdate({_id: userId}, data, (error, user) => {
+    if (error) throw error;
+    res.redirect('/admin');
+  });
+
+}
 
 router.get('/account/delete', (req, res, next) => {
   User.findOneAndRemove({_id: req.session.userId}, (error, user) => {
     if (error) throw error;
-    auth.logout(req, res);
+      auth.logout(req, res);
   });
 });
+// End
 
 // New story
 router.route('/newstory')
@@ -78,24 +118,97 @@ router.route('/newstory')
   })
   .post(function(req, res, next) {
 
+
+    var img = req.files.storypic;
+    var imgType = null;
+
+    if (img) { // If picture uploaded
+
+          var ext = img.mimetype;
+
+          switch(ext) {
+            case 'image/jpeg':
+              ext = 'jpg';
+              break;
+            case 'image/gif':
+              ext = 'gif';
+              break;
+            case 'image/png':
+              ext = 'png';
+              break;
+            default:
+              ext = 'jpg';
+          }
+
+          imgType= ext;
+
+        } else { // If no picture uploaded
+
+          imgType = null;
+
+        }
+
+
+    // la condition suivante permet l'enregistrement de la story même sans img renseignée
     var newStory = new Story ({
       title: req.body.title,
       text: req.body.text_zone,
-      img: null,
+      imgType: imgType,
       authorId: req.session.userId,
       authorName: req.session.userName,
-      authorPicture: req.session.userPicture
+      authorPicture: req.session.userPicture,
     });
+  
+    if (img) { // If picture uploaded
 
-    newStory.save(function(err, story) {
-      res.redirect('/admin');
-    });
+      newStory.save(function(err, story) {
+        img.mv('./public/images/storypics/' + story.id+'.'+story.imgType , function(err){
+          res.redirect('/admin');
+        });
+      });
+
+    } else { // If no picture uploaded
+      newStory.save(function(err, story) {
+        res.redirect('/admin');
+      });
+    }
+
   });
 // End
 
-router.get('/stories/:id', function(req, res, next) {
-  Story.findOne({_id: req.params.id}, function (error, story) {
-    res.render('admin/story', {story, log});
+// See & update story
+router.route('/stories/:id')
+  .get((req, res) => {
+    Story.findById({_id: req.params.id})
+      .then(story => {
+        res.render('admin/story', {story, log});
+      })
+      .catch(error => {
+        res.status(400).json(err);
+      });
+  })
+  .post((req, res) => {
+
+    let data = {
+      title: req.body.title,
+      text: req.body.text
+    };
+
+    Story.findByIdAndUpdate({ _id: req.params.id }, data)
+      .then(story => {
+          res.redirect('/admin');
+      })
+      .catch(error => {
+        res.status(400).json(err);
+      });
+
+  });
+// End
+
+router.get('/stories/:id/delete', (req, res, next) => {
+  Story.findOneAndRemove({_id: req.params.id}, (error, user) => {
+    if (error) throw error;
+    res.redirect('/admin');
   });
 });
 

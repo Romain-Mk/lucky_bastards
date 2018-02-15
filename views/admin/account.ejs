@@ -11,13 +11,14 @@
 
 <div id="admin_profile_info_body">
 
-  <form encType="multipart/form-data" class="" action="/admin/account" method="post">
-    <input type="file" name="profilepic" value="">Choose a profile pic <br/>
-    <input type="text" name="facebook" value="" placeholder="Your Facebook URL">
-    <input type="text" name="twitter" value="" placeholder="Your Twitter URL">
-    <input type="text" name="instagram" value="" placeholder="Your Instagram URL">
-    <input type="text" name="website" value="" placeholder="Your website URL">
-    <input type="submit" name="" value="Modifier infos de profil">
+  <form action="/admin/account" method="post" encType="multipart/form-data">
+    <input type="hidden" name="profilepic_hidden" value="<%= user.picture %>">
+    <input type="file" name="profilepic"><br/>
+    <input type="text" name="facebook" value="<%= user.facebook %>" placeholder="Your Facebook URL">
+    <input type="text" name="twitter" value="<%= user.twitter %>" placeholder="Your Twitter URL">
+    <input type="text" name="instagram" value="<%= user.instagram %>" placeholder="Your Instagram URL">
+    <input type="text" name="website" value="<%= user.website %>" placeholder="Your website URL">
+    <input type="submit" name="submit" value="Update my account">
   </form>
 
   <a href="/admin/account/delete">Delete account</a>

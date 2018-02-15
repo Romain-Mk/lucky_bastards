@@ -5,12 +5,10 @@ var userSchema = mongoose.Schema({
   email: String,
   password: String,
   picture: {type:String, default: null},
-  coverpicture: {type:String, default: null},
-  fb: {type:String, default: null},
-  insta: {type:String, default: null},
+  facebook: {type:String, default: null},
+  instagram: {type:String, default: null},
   twitter: {type:String, default: null},
-  blog: {type:String, default: null},
-  about: String,
+  website: {type:String, default: null},
   admin: Boolean
 }, {timestamps: true});
 

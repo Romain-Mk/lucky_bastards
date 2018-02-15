@@ -268,4 +268,25 @@ body {
   padding-left: 1%;
   padding-right: 1%;
   padding-bottom: 2%;
+  height: 180px;
+  position: relative;
+}
+
+.div_cardText_text {
+  height: 108px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardText_text {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.cardTex_readMore {
+  position: absolute;
+  right: 1%;
+  padding-top: 1%;
 }
