@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var moment = require('moment');
 
 var User = require('../models/user');
 var Story = require('../models/story');
@@ -22,7 +23,7 @@ router.all('/*', function (req, res, next) {
 router.get('/', (req, res, next) => {
   Story.find({}).sort({createdAt: -1}).exec((err, stories) => {
     if (err) throw err;
-    res.render('index', {stories, log});
+    res.render('index', {stories, moment, log});
   });
 });
 
@@ -38,7 +39,7 @@ router.get('/authors/:id', function(req, res, next) {
   User.findOne({_id: id}, function(error, user) {
     Story.find({authorId: id}).sort({createdAt: -1}).exec(function(error, stories) {
       if (error) throw error;
-      res.render('author', {user, stories, log});
+      res.render('author', {user, stories, moment, log});
     });
   });
 });
