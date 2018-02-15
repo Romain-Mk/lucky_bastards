@@ -25,7 +25,7 @@ router.all('/*', function (req, res, next) {
 
 router.get('/', function(req, res, next) {
   var userId = req.session.userId;
-  User.findOne({_id: userId}, function(error, user) {
+  User.findById({_id: userId}, function(error, user) {
     if (error) throw error;
     Story.find({authorId: userId}).sort({createdAt: -1}).exec(function(err, stories) {
       if (error) throw error;
@@ -82,25 +82,34 @@ router.route('/account')
       website: req.body.website
     }
 
+    var data2 = {
+      authorPicture: picture
+    }
+
     if (profilepic) { // If picture uploaded
       profilepic.mv('./public/images/profilepics/' + data.picture, (error, user) => {
         if (error) throw error;
-        updateAccount(userId, data, res);
+        updateAccount(userId, data, data2, res);
       });
 
     } else { // If no picture uploaded
-      updateAccount(userId, data, res);
+      updateAccount(userId, data, data2, res);
     }
 
   });
 
-function updateAccount(userId, data, res) {
-
+function updateAccount(userId, data, data2, res) {
   User.findByIdAndUpdate({_id: userId}, data, (error, user) => {
+    if (error) throw error;
+    updateStories(userId, data2, res);
+  });
+}
+
+function updateStories(userId, data2, res) {
+  Story.update({authorId: userId}, data2, { multi: true }, (error, user) => {
     if (error) throw error;
     res.redirect('/admin');
   });
-
 }
 
 router.get('/account/delete', (req, res, next) => {
@@ -158,7 +167,7 @@ router.route('/newstory')
       authorName: req.session.userName,
       authorPicture: req.session.userPicture,
     });
-  
+
     if (img) { // If picture uploaded
 
       newStory.save(function(err, story) {
