@@ -4,7 +4,7 @@ body {
   color: #3D4D65;
 }
 
-#publication_header {
+.newstory_header {
   background-image: url("/images/volkswagen-569315_1920.jpg");
   background-size: cover;
   background-position: center center;
@@ -14,19 +14,19 @@ body {
   align-items: center;
 }
 
-#publication_user_info {
+/* #publication_user_info {
   margin-left: 2%;
   display: flex;
   align-items: center;
   height: 100vh;
-}
+} */
 
-.user_pic_publication {
+/* .user_pic_publication {
   border-radius: 50%;
   width: 15%;
-}
+} */
 
-.user_name_publication {
+/* .user_name_publication {
   font-size: 20px;
   color : white;
   font-family: 'Sedgwick Ave Display', 'Open sans', cursive, sans-serif;
@@ -38,32 +38,61 @@ body {
 .home_logo {
   width: 5%;
   margin-right: 2%;
-}
+} */
 
-#publication_body {
+.newstory_body {
   display: flex;
 }
 
-#steps {
+.newstory_side_bar {
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+.newstory_steps {
   display: flex;
   flex-direction: column;
+  margin-top: 2%;
+  margin-left: 1%;
 }
 
 /* #publication_1_body {
   display: flex;
 } */
 
-#side_bar {
-  margin-left: 2%;
-  margin-top: 2%;
-}
-
-#step1 {
+.newstory_step1 {
   display: flex;
   flex-direction: column;
   margin-left: 2%;
   margin-top: 2%;
   width: 100%;
+}
+
+.newstory_title {
+  font-family: 'Roboto condensed', 'Open sans', cursive, sans-serif;
+}
+
+.newstory_subtitle {
+  font-family: 'Roboto condensed', 'Open sans', cursive, sans-serif;
+  font-size: 18px;
+}
+
+.newstory_titleZone {
+  margin-top: 5%;
+}
+
+.newstory_titleInput {
+  height: 30px;
+  width: 150%;
+}
+
+.newstory_textZone {
+  margin-top: 10%;
+}
+
+.newstory_textInput {
+  width: 500%;
+  height: 48%;
 }
 
 #step2 {

@@ -16,7 +16,6 @@ body {
   text-align: center;
 }
 
-
 #banner {
   display: flex;
   justify-content: space-between;
@@ -69,6 +68,7 @@ body {
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 .menu_title {
   font-size: 16px;
   font-weight: bold;
@@ -85,6 +85,7 @@ body {
 .menu_title:hover {
   display : block;
 }
+
 .menu_deroulant {
   margin:0;
   padding: 12px;
@@ -92,12 +93,11 @@ body {
   font-weight: normal;
     display: none;
     width : inherit;
-
 }
+
 .menu_title:hover .menu_deroulant{
   display : block;
 }
-
 
 .menu_links {
   list-style-type:none;
@@ -105,7 +105,6 @@ body {
   padding : 10px;
   display: block;
   text-align: center;
-
 }
 
 .menu_links a {
@@ -113,17 +112,9 @@ body {
   color : #F8F8F8;
 }
 
-
-
 .menu_links a:hover {
   font-weight : bold;
 }
-
-
-
-
-
-
 
 .homepage_title_zone {
   display: flex;
@@ -170,11 +161,22 @@ body {
   padding-bottom: 1%;
 }
 
-#arrow {
+/* #arrow {
   display: inline-block;
   vertical-align: bottom;
-}
+} */
 
+#addStory_button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  top: 590;
+  left: 0;
+  z-index: 4;
+  padding-top: 2%;
+  /*align-items: center;*/
+}
 
 /* FILTERS */
 
@@ -229,7 +231,7 @@ body {
   justify-content: flex-end;
 }
 
-.cardTop_banner {
+.home_cardTop_banner {
   background-color: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
@@ -241,13 +243,13 @@ body {
   width: 28px;
 }
 
-.cardTop_infos {
+.home_cardTop_infos {
   display: flex;
   flex-direction: column;
   margin-left: 1%;
 }
 
-.cardTop_infos_authorName {
+.home_cardTop_infos_authorName {
   font-family: 'Sedgwick Ave Display', cursive, sans-serif;
   color: white;
   font-size: 20px;
@@ -256,7 +258,7 @@ body {
   text-decoration: none;
 }
 
-.cardTop_infos_storyDate {
+.home_cardTop_infos_storyDate {
   font-family: 'Open sans', cursive, sans-serif;
   color: white;
   font-size: 14px;
@@ -272,20 +274,20 @@ body {
   position: relative;
 }
 
-.div_cardText_text {
+.home_div_cardText_text {
   height: 108px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.cardText_text {
+.home_cardText_text {
   text-align: justify;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
 }
 
-.cardTex_readMore {
+.home_cardTex_readMore {
   position: absolute;
   right: 1%;
   padding-top: 1%;

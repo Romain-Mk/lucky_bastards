@@ -4,7 +4,7 @@ body {
 
 /* STORY HEADER */
 
-#profile_page_header {
+#admin_header {
   background-image: url("/images/volkswagen-569315_1920.jpg");
   background-size: cover;
   background-position: center center;
@@ -15,31 +15,31 @@ body {
   align-items: center;
 }
 
-.user_pic_profile {
+.admin_profile_picture {
   border-radius: 50%;
   width: 10%;
 }
 
-.user_name_profile {
+.admin_name {
   font-size: 25px;
   color : white;
   font-family: 'Sedgwick Ave Display', 'Open sans', cursive, sans-serif;
   margin-top: 0.5%;
 }
 
-.social_media_profile {
+.admin_div_social_media {
   display: flex;
   justify-content: center;
   margin-top: 2%;
   width: 20%;
 }
 
-.social_media_icons {
+.admin_social_media_icons {
   width: 35px;
   height: 35px;
 }
 
-#user_stories_navbar {
+/* #admin_navbar {
   display: flex;
   justify-content: space-around;
   font-family: 'Roboto condensed', 'Open sans', cursive, sans-serif;
@@ -52,29 +52,29 @@ body {
   border-top: 0;
 }
 
-.navbar_stories {
+.admin_stories_navbar {
   display: flex;
 }
 
-.navbar_pictures {
+.admin_pictures_navbar {
   display: flex;
 }
 
-span {
+.admin_number {
   display: flex;
   align-items: center;
   padding-left: 10%;
-}
+} */
 
 /* NEWSFEED */
 
-#author_newsfeed {
+#admin_newsfeed {
   display: inline-block;
   font-size: 0;
   padding: 1%;
 }
 
-.author_newsfeed_card {
+.admin_newsfeed_card {
   font-size: 16px;
   border-width: thin;
   border-color: #D8D8D8;
@@ -88,7 +88,7 @@ span {
   margin: 1%;
 }
 
-.author_newsfeed_cardTop {
+.admin_newsfeed_cardTop {
   background-image: url("../images/car-1093927_1920.jpg");
   background-size: cover;
   background-position: center center;
@@ -98,25 +98,25 @@ span {
   justify-content: flex-end;
 }
 
-.cardTop_banner {
+.admin_cardTop_banner {
   background-color: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
   padding-left: 1%;
 }
 
-.cardTop_authorPic {
+.admin_cardTop_authorPic {
   border-radius: 50%;
   width: 6%;
 }
 
-.cardTop_infos {
+.admin_cardTop_infos {
   display: flex;
   flex-direction: column;
   margin-left: 1%;
 }
 
-.cardTop_infos_authorName {
+.admin_cardTop_infos_authorName {
   font-family: 'Sedgwick Ave Display', cursive, sans-serif;
   color: white;
   font-size: 20px;
@@ -124,7 +124,7 @@ span {
   margin-bottom: 0;
 }
 
-.cardTop_infos_storyDate {
+.admin_cardTop_infos_storyDate {
   font-family: 'Open sans', cursive, sans-serif;
   color: white;
   font-size: 14px;
@@ -132,7 +132,7 @@ span {
   margin-bottom: 0;
 }
 
-.author_newsfeed_cardBottom {
+.admin_newsfeed_cardBottom {
   padding-left: 1%;
   padding-right: 1%;
   padding-bottom: 2%;
@@ -140,20 +140,20 @@ span {
   position: relative;
 }
 
-.div_cardText_text {
+.admin_div_cardText_text {
   height: 108px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.cardText_text {
+.admin_cardText_text {
   text-align: justify;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
 }
 
-.cardTex_readMore {
+.admin_cardTex_readMore {
   position: absolute;
   right: 1%;
   padding-top: 1%;
