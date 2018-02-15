@@ -105,10 +105,6 @@ function updateAccount(userId, data, res) {
     });
 
 }
-// End
-
-
-
 
 router.get('/account/delete', (req, res, next) => {
   User.findOneAndRemove({_id: req.session.userId}, (error, user) => {
@@ -116,6 +112,7 @@ router.get('/account/delete', (req, res, next) => {
     auth.logout(req, res);
   });
 });
+// End
 
 // New story
 router.route('/newstory')
@@ -136,12 +133,43 @@ router.route('/newstory')
     newStory.save(function(err, story) {
       res.redirect('/admin');
     });
+
   });
 // End
 
-router.get('/stories/:id', function(req, res, next) {
-  Story.findOne({_id: req.params.id}, function (error, story) {
-    res.render('admin/story', {story, log});
+// See & update story
+router.route('/stories/:id')
+  .get((req, res) => {
+    Story.findById({_id: req.params.id})
+      .then(story => {
+        res.render('admin/story', {story, log});
+      })
+      .catch(error => {
+        res.status(400).json(err);
+      });
+  })
+  .post((req, res) => {
+
+    let data = {
+      title: req.body.title,
+      text: req.body.text
+    };
+
+    Story.findByIdAndUpdate({ _id: req.params.id }, data)
+      .then(story => {
+          res.redirect('/admin');
+      })
+      .catch(error => {
+        res.status(400).json(err);
+      });
+
+  });
+// End
+
+router.get('/stories/:id/delete', (req, res, next) => {
+  Story.findOneAndRemove({_id: req.params.id}, (error, user) => {
+    if (error) throw error;
+    res.redirect('/admin');
   });
 });
 
