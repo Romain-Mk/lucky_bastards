@@ -34,38 +34,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-// router.get('/account', function(req, res, next) {
-//   res.render('admin/account', {log});
-// });
-//
-// router.post ('/account', function(req, res) {
-//   var facebook = req.body.facebook;
-//   var twitter = req.body.twitter;
-//   var instagram = req.body.instagram;
-//   var website = req.body.website;
-//   var userId = req.session.userId;
-//
-//   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-//   var profilepic = req.files.profilepic;
-//   // Pour l'instant on nomme toutes les images enregistrées img.jpg, après on pourra utiliser req.session.user._id
-//   // pour pouvoir renommer l'image en fonction de l'user qui l'a uploadée
-//   var fileName = userId;
-//
-//   // Use the mv() method to place the file somewhere on your server
-//   profilepic.mv('./public' + '/images/profilepics/' + fileName + '.jpg' , function(err) {
-//
-//     User.update(
-//       {_id: userId},
-//       {picture: fileName + '.jpg', fb: facebook, twitter: twitter, insta: instagram, blog: website},
-//       function(error, social) {
-//         res.render('admin/account', {log});
-//       });
-//   });
-//
-// });
-
-
-
 // Account
 router.route('/account')
   .get((req, res) => {
