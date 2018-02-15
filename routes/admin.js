@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fileUpload = require('express-fileupload');
+var moment = require('moment');
 
 var User = require('../models/user');
 var Story = require('../models/story');
@@ -27,9 +28,9 @@ router.get('/', function(req, res, next) {
   var userId = req.session.userId;
   User.findById({_id: userId}, function(error, user) {
     if (error) throw error;
-    Story.find({authorId: userId}).sort({createdAt: -1}).exec(function(err, stories) {
+    Story.find({authorId: userId}).sort({createdAt: -1}).exec(function(error, stories) {
       if (error) throw error;
-      res.render('admin/index', {stories, user, log});
+      res.render('admin/index', {stories, user, moment, log});
     });
   });
 });

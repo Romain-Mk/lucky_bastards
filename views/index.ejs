@@ -47,7 +47,7 @@
           </a>
           <div class="cardTop_infos">
             <a href="authors/<%= stories[i].authorId %>" class="cardTop_infos_authorName"><%= stories[i].authorName %></a>
-            <p class="cardTop_infos_storyDate"><%= stories[i].createdAt %></p>
+            <p class="cardTop_infos_storyDate"><%= moment(stories[i].createdAt).format('DD-MM-YYYY') %></p>
           </div>
         </div>
       </div>
