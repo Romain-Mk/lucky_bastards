@@ -13,6 +13,84 @@ body {
   align-items: center;
 }
 
+#admin_profile_info_body {
+  display : flex;
+  justify-content: center;
+}
+
+#formAccount {
+  margin-top : 50px;
+  display : flex;
+  flex-direction: column;
+}
+
+.change_Profile_Picture {
+  display :flex ;
+  cursor : pointer;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom : 30px;
+}
+
+.change_Profile_Picture label {
+  color : rgb(173, 113, 72);
+  margin-bottom : 10px;
+  font-size : 16px;
+  font-weight : bold;
+}
+
+
+#formAccount div {
+  display : flex;
+  align-items: center;
+}
+
+#formAccount img {
+height : 30px;
+margin-right : 20px;
+}
+
+.input_reseaux {
+  width : 250px;
+  font-size : 14px;
+  height : 25px;
+  margin : 10px;
+  margin-left : 0;
+  padding : 5px;
+  border-radius : 8px;
+  border : 1px solid #D6D6D6;
+}
+
+#formAccount input.validateAccount {
+  display :block;
+  background-color: #F6F6F6;
+  cursor : pointer;
+  width : 300px;
+  font-size : 14px;
+  font-weight : bold;
+  color : rgb(173, 113, 72);
+  height : 40px;
+  text-align: center;
+  border-radius : 8px;
+  border : 1px solid #D6D6D6;
+  margin-bottom : 30px;
+
+
+}
+
+.deleteAccount {
+  height : 20px;
+  border : 1px solid #D6D6D6;
+ color: #F6F6F6;
+  background-color : rgb(173, 113, 72);
+  text-decoration: none;
+  margin-top : 30px;
+  cursor : pointer;
+  padding : 10px;
+  font-size : 14px;
+  border-radius : 5px;
+  font-weight : bold;
+}
 /*
 #admin_user_info {
   margin-left: 2%;
