@@ -11,8 +11,8 @@
   <h2 class="admin_name"><%= user.username %></h2>
   <a href="/admin/newstory"><img src="/images/elements/add_a_story_button.svg"></a>
   <div class="admin_div_social_media">
-    <% if (user.fb) { %>
-      <a href="<%=user.fb%>" target="_blank">
+    <% if (user.facebook) { %>
+      <a href="<%=user.facebook%>" target="_blank">
         <img class="admin_social_media_icons" src="/images/elements/facebook_icon.svg"/>
       </a>
     <% } %>
@@ -21,13 +21,13 @@
         <img class="admin_social_media_icons" src="/images/elements/twitter_icon.svg"/>
       </a>
     <% } %>
-    <% if (user.insta) { %>
-      <a href="<%=user.insta%>" target="_blank">
+    <% if (user.instagram) { %>
+      <a href="<%=user.instagram%>" target="_blank">
         <img class="admin_social_media_icons" src="/images/elements/instagram_icon.svg"/>
       </a>
     <% } %>
-    <% if (user.blog) { %>
-      <a href="<%=user.blog%>" target="_blank">
+    <% if (user.website) { %>
+      <a href="<%=user.website%>" target="_blank">
         <img class="admin_social_media_icons" src="/images/elements/url_icon.svg"/>
       </a>
     <% } %>
@@ -67,7 +67,7 @@
           <% } else { %>
             <img class="admin_cardTop_authorPic" src="/images/profilepics/default.jpg" alt="Photo user" />
           <% } %>
-          
+
           <div class="admin_cardTop_infos">
             <p class="admin_cardTop_infos_authorName"><%= stories[i].authorName %></p>
             <p class="admin_cardTop_infos_storyDate"><%= moment(stories[i].createdAt).format('DD-MM-YYYY') %></p>
