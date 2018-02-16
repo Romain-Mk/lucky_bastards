@@ -1,27 +1,27 @@
 <%- include('../inc/header'); %>
 
-  <div id="publication_header"></div>
+  <div class="newstory_header"></div>
 
-  <div id="publication_body">
+  <div class="newstory_body">
 
-    <div id="side_bar">
+    <div class="newstory_side_bar">
       <img src="/images/elements/create_publication_side_bar_1.svg" />
     </div>
 
-    <div id="steps">
+    <div class="newstory_steps">
 
-      <div id="step1">
-        <h2>TELL US YOUR STORY</h2>
+      <div class="newstory_step1">
+        <h2 class="newstory_title">UPDATE YOUR STORY</h2>
         <form action="/admin/stories/<%= story._id %>" method="post">
-          <div>
-            <label>Title of your story</label><br>
-            <input type="text" name="title" value="<%= story.title %>" placeholder="Exemple: Winter in L.A">
+          <div class="newstory_titleZone">
+            <label class="newstory_subtitle">Change your title here</label><br>
+            <input type="text" name="title" value="<%= story.title %>" class="newstory_titleInput" placeholder="Exemple: Winter in L.A">
           </div>
-          <div>
-            <label>Describe your story</label><br>
-            <textarea name="text" rows="3"><%= story.text %></textarea>
+          <div class="newstory_textZone">
+            <label class="newstory_subtitle">Change the content of your story here</label><br>
+            <textarea name="text" class="newstory_textInput_update" rows="3"><%= story.text %></textarea>
           </div>
-          <input type="submit" name="update" value="Update">
+          <input type="submit" name="update" value="Update" class="newstory_update_button">
         </form>
 
     </div>

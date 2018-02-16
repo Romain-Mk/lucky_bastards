@@ -64,12 +64,12 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 2%;
-  margin-top: 2%;
   width: 100%;
 }
 
 .newstory_title {
   font-family: 'Roboto condensed', 'Open sans', cursive, sans-serif;
+  margin-top: 0;
 }
 
 .newstory_subtitle {
@@ -77,23 +77,31 @@ body {
   font-size: 18px;
 }
 
-.newstory_titleZone {
-  margin-top: 5%;
-}
-
 .newstory_titleInput {
   height: 30px;
-  width: 150%;
+  width: 85vw;
 }
 
 .newstory_textZone {
-  margin-top: 10%;
+  margin-top: 20px;
 }
 
 .newstory_textInput {
-  width: 500%;
-  height: 48%;
+  width: 85vw;
+  height: 320px;
+  border-color: #8493A8;
 }
+
+.newstory_bottom_buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* .newstory_picZone {
+  margin-top: 5%;
+} */
 
 #step2 {
   display: flex;
@@ -122,4 +130,34 @@ body {
   justify-content: flex-end;
   width: 90%;
   margin-top: 2%;
+}
+
+.newstory_publish_button {
+  background-color: rgba(245, 81, 95, 100);
+  font-family: 'Open sans', cursive, sans-serif;
+  color: White;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+}
+
+/* UPDATE STORY */
+
+.newstory_textInput_update {
+  width: 85vw;
+  height: 320px;
+  border-color: #8493A8;
+}
+
+.newstory_update_button {
+  background-color: rgba(245, 81, 95, 100);
+  font-family: 'Open sans', cursive, sans-serif;
+  color: White;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 78vw;
 }
