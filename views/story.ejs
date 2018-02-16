@@ -9,8 +9,8 @@
 
       <div class="story_pic_banner">
 
-        <% if (user.picture) { %>
-          <img class="user_pic" src="/images/profilepics/<%=user.picture%>" alt="Photo user" />
+        <% if (story.authorPicture) { %>
+          <img class="user_pic" src="/images/profilepics/<%= story.authorPicture %>" alt="Photo user" />
         <% } else { %>
           <img class="user_pic" src="/images/profilepics/default.jpg" alt="Photo user" />
         <% } %>
