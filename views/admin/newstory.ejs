@@ -1,26 +1,26 @@
 <%- include('../inc/header'); %>
 
-  <div id="publication_header"></div>
+  <div class="newstory_header"></div>
 
-  <div id="publication_body">
+  <div class="newstory_body">
 
-    <div id="side_bar">
+    <div class="newstory_side_bar">
       <img src="/images/elements/create_publication_side_bar_1.svg" />
     </div>
 
-    <div id="steps">
+    <div class="newstory_steps">
 
-      <div id="step1">
-        <h2>TELL US YOUR STORY</h2>
+      <div class="newstory_step1">
+        <h2 class="newstory_title">TELL US YOUR STORY</h2>
         <!-- <form action="/admin/newstory" method="POST"> -->
         <form encType="multipart/form-data" action="/admin/newstory" method="POST">
-          <div>
-            <label>Title of your story</label><br>
-            <input type="text" name="title" value="" placeholder="Exemple: Winter in L.A">
+          <div class="newstory_titleZone">
+            <label class="newstory_subtitle">GIVE YOUR STORY A TITLE</label><br>
+            <input type="text" name="title" value="" placeholder="50 characters maximum" class="newstory_titleInput" maxlength="50">
           </div>
-          <div>
-            <label>Describe your story</label><br>
-            <textarea name="text_zone" rows="3"></textarea>
+          <div class="newstory_textZone">
+            <label class="newstory_subtitle">WHAT IS YOUR STORY?</label><br>
+            <textarea name="text_zone" rows="3" class="newstory_textInput"></textarea>
           </div>
           <div>
             <input type="file" name="storypic" value=""> <br/>

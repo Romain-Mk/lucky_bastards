@@ -1,4 +1,3 @@
-
 <%- include('inc/header'); %>
 
 <div id="home">
@@ -8,13 +7,25 @@
     <h2 class="homepage_subtitle">The weirdest, craziest, funniest and most unusual travel stories</h2>
   </div>
 
-  <div id="scroll">
+  <!-- <div id="scroll">
     <img id="arrow" src="/images/elements/Scroll.png" alt="scroll" />
-  </div>
+  </div> -->
 
 </div>
 
-<div id="filters_navbar">
+<div id="addStory_button">
+  <% if (log) { %>
+    <a href="/admin/newstory"><img src="/images/elements/add_a_story_button.svg"></a>
+  <% } else { %>
+    <a href="/login/addbutton"><img src="/images/elements/add_a_story_button.svg"></a>
+  <% } %>
+  <!-- <h3>MOST RECENT</h3>
+  <h3>MOST POPULAR</h3>
+  <h3>FAVORITE AUTHORS</h3>
+  <img src="/images/elements/loupe_icon.svg"> -->
+</div>
+
+<!-- <div id="filters_navbar">
   <% if (log) { %>
     <a href="/admin/newstory"><img src="/images/elements/add_a_story_button.svg"></a>
   <% } else { %>
@@ -24,7 +35,7 @@
   <h3>MOST POPULAR</h3>
   <h3>FAVORITE AUTHORS</h3>
   <img src="/images/elements/loupe_icon.svg">
-</div>
+</div> -->
 
 <div id="home_newsfeed">
 
@@ -32,12 +43,15 @@
 
     <div class="home_newsfeed_card">
 
+
     <% if (stories[i].imgType) { %>
-      <div class="author_newsfeed_cardTop" style="background-image:url(../images/storypics/<%=stories[i].id+'.'+stories[i].imgType%>);">
+      <div class="home_newsfeed_cardTop" style="background-image:url(../images/storypics/<%=stories[i].id+'.'+stories[i].imgType%>);">
     <% } else { %>
       <div class="home_newsfeed_cardTop" style="background-image:url(../images/storypics/bg-default.jpg);">
     <% } %>
-        <div class="cardTop_banner">
+
+        <div class="home_cardTop_banner">
+
           <a href="authors/<%= stories[i].authorId %>" class="home_cardTop_authorPic">
             <% if (stories[i].authorPicture) { %>
               <img class="user_pic_profile" src="/images/profilepics/<%=stories[i].authorPicture%>" alt="Photo user" />
@@ -45,19 +59,21 @@
               <img class="user_pic_profile" src="/images/profilepics/default.jpg" alt="Photo user" />
             <% } %>
           </a>
-          <div class="cardTop_infos">
-            <a href="authors/<%= stories[i].authorId %>" class="cardTop_infos_authorName"><%= stories[i].authorName %></a>
-            <p class="cardTop_infos_storyDate"><%= moment(stories[i].createdAt).format('DD-MM-YYYY') %></p>
+
+          <div class="home_cardTop_infos">
+            <a href="authors/<%= stories[i].authorId %>" class="home_cardTop_infos_authorName"><%= stories[i].authorName %></a>
+            <p class="home_cardTop_infos_storyDate"><%= moment(stories[i].createdAt).format('DD-MM-YYYY') %></p>
+
           </div>
         </div>
       </div>
 
       <div class="home_newsfeed_cardBottom">
-        <h3 class="cardText_title"><%=stories[i].title%></h3>
-        <div class="div_cardText_text">
-          <p class="cardText_text"><%=stories[i].text%></p>
+        <h3 class="home_cardText_title"><%=stories[i].title%></h3>
+        <div class="home_div_cardText_text">
+          <p class="home_cardText_text"><%=stories[i].text%></p>
         </div>
-        <a href="stories/<%= stories[i]._id %>"> <img src="/images/elements/read_more_button.svg" class="cardTex_readMore" /> </a>
+        <a href="stories/<%= stories[i]._id %>"> <img src="/images/elements/read_more_button.svg" class="home_cardTex_readMore" /> </a>
       </div>
 
     </div>

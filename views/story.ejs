@@ -2,34 +2,35 @@
 
 
   <% if (story.imgType) { %>
-    <div id="story_header" style="background-image:url(../images/storypics/<%=story.id+'.'+story.imgType%>);">
+    <div class="story_header" style="background-image:url(../images/storypics/<%=story.id+'.'+story.imgType%>);">
   <% } else { %>
-    <div id="story_header" style="background-image:url(../images/travel-1749508_1920.jpg);">
+    <div class="story_header" style="background-image:url(../images/travel-1749508_1920.jpg);">
   <% } %>
 
-      <div id="story_pic_banner">
+      <div class="story_pic_banner">
 
         <% if (user.picture) { %>
           <img class="user_pic" src="/images/profilepics/<%=user.picture%>" alt="Photo user" />
         <% } else { %>
           <img class="user_pic" src="/images/profilepics/default.jpg" alt="Photo user" />
         <% } %>
-        <div id="story_name_date">
+        <div class="story_name_date">
           <p class="story_name"><%= story.authorName %></p>
           <p class="story_date"><%= moment(story.createdAt).format('DD-MM-YYYY') %></p>
+
         </div>
       </div>
 
     </div>
 
-  <div id="story_main">
+  <div class="story_body">
 
-    <div id="story">
+    <div class="story_zone">
       <h2 class="storyTitle"><%=story.title%></h2>
       <p id="story_text"><%=story.text%></p>
     </div>
 
-    <div id="side_menu">
+    <!-- <div id="side_menu">
 
       <div class="side_cards">
         <div class="cards_titles">
@@ -85,11 +86,11 @@
         </div>
       </div>
 
-  </div>
+  </div> -->
 
   </div>
 
-      <div id="story_bottom">
+      <!-- <div id="story_bottom">
         <img class="story_icons" src="/images/elements/like_button_unactivated.svg"/>
         <img class="story_icons" src="/images/elements/save_button.svg"/>
         <img class="story_icons" src="/images/elements/addasfavorite_button.svg"/>
@@ -97,6 +98,6 @@
         <img class="story_icons" src="/images/elements/google_icon.svg"/>
         <img class="story_icons" src="/images/elements/email_icon.svg"/>
         <img class="story_icons" src="/images/elements/url_icon.svg"/>
-      </div>
+      </div> -->
 
 <%- include('inc/footer'); %>
