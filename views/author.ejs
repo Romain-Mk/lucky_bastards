@@ -7,7 +7,7 @@
     <img class="author_profile_picture" src="/images/profilepics/default.jpg" alt="Photo user" />
   <% } %>
   <h2 class="author_name"><%= user.username %></h2>
-  <!-- <img src="/images/elements/add_as_favorite_author_button.svg"/> -->
+  <img src="/images/elements/add_as_favorite_author_button.svg"/>
   <div class="author_div_social_media">
     <% if (user.fb) { %>
       <a href="<%=user.fb%>" target="_blank">
@@ -51,18 +51,26 @@
 
     <div class="author_newsfeed_card">
 
-      <div class="author_newsfeed_cardTop">
+      <% if (stories[i].imgType) { %>
+        <div class="author_newsfeed_cardTop" style="background-image:url(../images/storypics/<%=stories[i].id+'.'+stories[i].imgType%>);">
+      <% } else { %>
+        <div class="author_newsfeed_cardTop" style="background-image:url(../images/storypics/bg-default.jpg);">
+      <% } %>
+
         <div class="author_cardTop_banner">
+
           <% if (stories[i].authorPicture) { %>
-            <img class="author_cardTop_authorPic" src="/images/profilepics/<%=stories[i].authorPicture%>" alt="Photo user" />
+            <img class="author_cardTop_authorPic" src="/images/profilepics/<%=stories[i].authorPicture%>" alt="Photo user">
           <% } else { %>
-            <img class="author_cardTop_authorPic" src="/images/profilepics/default.jpg" alt="Photo user" />
+            <img class="author_cardTop_authorPic" src="/images/profilepics/default.jpg" alt="Photo user">
           <% } %>
+
           <div class="author_cardTop_infos">
             <p class="author_cardTop_infos_authorName"><%= stories[i].authorName %></p>
-            <p class="author_cardTop_infos_storyDate"><%= stories[i].createdAt %></p>
+            <p class="author_cardTop_infos_storyDate"><%= moment(stories[i].createdAt).format('DD-MM-YYYY') %></p>
           </div>
         </div>
+
       </div>
 
       <div class="author_newsfeed_cardBottom">
@@ -70,7 +78,10 @@
         <div class="author_div_cardText_text">
           <p class="author_cardText_text"><%=stories[i].text%></p>
         </div>
-        <a href="stories/<%= stories[i]._id %>"> <img src="/images/elements/read_more_button.svg" class="author_cardTex_readMore" /> </a>
+
+        <a href="/stories/<%= stories[i]._id %>">
+          <img src="/images/elements/read_more_button.svg" class="author_cardTex_readMore"/>
+        </a>
       </div>
 
     </div>

@@ -1,23 +1,24 @@
 <%- include('inc/header'); %>
 
-    <div class="story_header">
+
+  <% if (story.imgType) { %>
+    <div class="story_header" style="background-image:url(../images/storypics/<%=story.id+'.'+story.imgType%>);">
+  <% } else { %>
+    <div class="story_header" style="background-image:url(../images/travel-1749508_1920.jpg);">
+  <% } %>
 
       <div class="story_pic_banner">
-        <img class="user_pic" src="/images/IMG_0088.JPG" alt="Photo user" />
+
+        <% if (user.picture) { %>
+          <img class="user_pic" src="/images/profilepics/<%=user.picture%>" alt="Photo user" />
+        <% } else { %>
+          <img class="user_pic" src="/images/profilepics/default.jpg" alt="Photo user" />
+        <% } %>
         <div class="story_name_date">
-          <p class="story_name">Romain Mk</p>
-          <p class="story_date">25 décembre 2017</p>
+          <p class="story_name"><%= story.authorName %></p>
+          <p class="story_date"><%= moment(story.createdAt).format('DD-MM-YYYY') %></p>
+
         </div>
-        <!-- <div id="story_like_comment">
-          <div id="story_likes">
-            <img src="/images/elements/like_icon.svg" />
-            <p class="numbers">25</p>
-          </div>
-          <div id="story_comments">
-            <img src="/images/elements/comment_icon.svg" />
-            <p class="numbers">25</p>
-          </div>
-        </div> -->
       </div>
 
     </div>
