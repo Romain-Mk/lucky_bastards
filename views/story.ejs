@@ -1,12 +1,22 @@
 <%- include('inc/header'); %>
 
-    <div id="story_header">
+
+  <% if (story.imgType) { %>
+    <div id="story_header" style="background-image:url(../images/storypics/<%=story.id+'.'+story.imgType%>);">
+  <% } else { %>
+    <div id="story_header" style="background-image:url(../images/travel-1749508_1920.jpg);">
+  <% } %>
 
       <div id="story_pic_banner">
-        <img class="user_pic" src="/images/IMG_0088.JPG" alt="Photo user" />
+
+        <% if (user.picture) { %>
+          <img class="user_pic" src="/images/profilepics/<%=user.picture%>" alt="Photo user" />
+        <% } else { %>
+          <img class="user_pic" src="/images/profilepics/default.jpg" alt="Photo user" />
+        <% } %>
         <div id="story_name_date">
-          <p class="story_name">Romain Mk</p>
-          <p class="story_date">25 décembre 2017</p>
+          <p class="story_name"><%= story.authorName %></p>
+          <p class="story_date"><%= story.createdAt %></p>
         </div>
       </div>
 
