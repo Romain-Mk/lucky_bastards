@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Post Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-de-profil-User" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M16,17 L2,17 C1.448,17 1,16.5526667 1,16 L1,2 C1,1.448 1.448,1 2,1 L12.9826667,1 L10.9833333,3 L3,3 L3,15 L15,15 L15,7.014 L17,5.01333333 L17,16 C17,16.5526667 16.552,17 16,17 L16,17 Z M16.1840463,4 L14,1.81675927 L14.3635538,1.45209207 C14.9667537,0.849302642 15.9450811,0.849302642 16.5476001,1.45209207 C17.1508,2.05556186 17.1508,3.03322372 16.5476001,3.63601315 L16.1840463,4 L16.1840463,4 Z M6,12 L6.66645885,9.33340258 L7,9 L9,11.0004155 L8.66645885,11.333818 L6,12 L6,12 Z M15,5.12917669 L9.12908578,11 L7,8.87082331 L12.8702505,3 L15,5.12917669 L15,5.12917669 Z" id="Post-Icon" stroke="#000000" stroke-width="0.5" fill="#FFFFFF"></path>
+    </g>
+</svg>
