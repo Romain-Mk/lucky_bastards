@@ -29,11 +29,9 @@ router.get('/', (req, res, next) => {
 
 //req.params.id = trouve moi l'élément dont l'id de la BDD correspond à celui qu'on te passe dans l'url
 router.get('/stories/:id', function(req, res, next) {
-  Story.findOne({_id: req.params.id}, function (error, story) {
-    User.find({_id: req.params.id}, function(error, user) {
-      if (error) throw error;
-      res.render('story', {story, user, moment, log});
-    });
+  Story.findById({_id: req.params.id}, function (error, story) {
+    if (error) throw error;
+    res.render('story', {story, moment, log});
   });
 });
 
