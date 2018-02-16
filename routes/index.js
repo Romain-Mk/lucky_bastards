@@ -32,7 +32,7 @@ router.get('/stories/:id', function(req, res, next) {
   Story.findOne({_id: req.params.id}, function (error, story) {
     User.find({_id: req.params.id}, function(error, user) {
       if (error) throw error;
-      res.render('story', {story, log, user});
+      res.render('story', {story, user, moment, log});
     });
   });
 });

@@ -16,7 +16,7 @@
         <% } %>
         <div id="story_name_date">
           <p class="story_name"><%= story.authorName %></p>
-          <p class="story_date"><%= story.createdAt %></p>
+          <p class="story_date"><%= moment(story.createdAt).format('DD-MM-YYYY') %></p>
         </div>
       </div>
 
