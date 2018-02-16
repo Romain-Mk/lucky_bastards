@@ -69,7 +69,7 @@ body {
 /* NEWSFEED */
 
 #author_newsfeed {
-  display: inline-block;
+  /* display: inline-block; */
   font-size: 0;
   padding: 1%;
 }

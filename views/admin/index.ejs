@@ -55,9 +55,11 @@
     <div class="admin_newsfeed_card">
 
       <div class="admin_newsfeed_cardTop">
+        <div class="admin_changes_buttons">
+          <a href="/admin/stories/<%= stories[i]._id %>" class="admin_update_button"><img src="/images/elements/admin_update_button.svg" /></a>
+          <a href="/admin/stories/<%= stories[i]._id %>/delete" class="admin_delete_button" ><img src="/images/elements/admin_delete_button.svg" /></a>
+        </div>
         <div class="admin_cardTop_banner">
-          <a href="/admin/stories/<%= stories[i]._id %>/delete">Delete</a>
-          <a href="/admin/stories/<%= stories[i]._id %>">Update</a>
           <% if (stories[i].authorPicture) { %>
             <img class="admin_cardTop_authorPic" src="/images/profilepics/<%=stories[i].authorPicture%>" alt="Photo user" />
           <% } else { %>
