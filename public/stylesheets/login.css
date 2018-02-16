@@ -33,7 +33,7 @@ body {
   display: flex;
   justify-content: flex-start;
   width: 65px  ;
-  padding-left: 20px;
+  margin-left: 8%;
 }
 
 
