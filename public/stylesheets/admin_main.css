@@ -72,6 +72,7 @@
   display: inline-block;
   font-size: 0;
   padding: 1%;
+  text-align: center;
 }
 
 .admin_newsfeed_card {
@@ -81,11 +82,12 @@
   border-style: solid;
   border-top: 0;
   border-radius: 1%;
-  width: 48%;
+  width: 47%;
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
   margin: 1%;
+  background-color: #FFF;
 }
 
 .admin_newsfeed_cardTop {
@@ -96,7 +98,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  position: relative;
 }
 
 .admin_storychanges_buttons {
@@ -110,7 +111,8 @@
   background-color: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
-  padding-left: 1%;
+  justify-content: flex-start;
+  padding-left: 3%;
 }
 
 .admin_changes_buttons {
@@ -120,34 +122,41 @@
 
 .admin_cardTop_authorPic {
   border-radius: 50%;
-  width: 6%;
+  width: 30px;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
-.admin_cardTop_infos {
+/* .admin_cardTop_infos {
   display: flex;
   flex-direction: column;
   margin-left: 1%;
-}
+} */
 
 .admin_cardTop_infos_authorName {
   font-family: 'Sedgwick Ave Display', cursive, sans-serif;
   color: white;
   font-size: 20px;
-  margin-top: 0;
-  margin-bottom: 0;
+  text-decoration: none;
+  text-align: left;
+  margin-left: 15%;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .admin_cardTop_infos_storyDate {
   font-family: 'Open sans', cursive, sans-serif;
-  color: white;
+  text-align: left;
+  font-style: italic;
+  color: #54657E;
   font-size: 14px;
-  margin-top: 0;
+  margin-top: 4%;
   margin-bottom: 0;
 }
 
 .admin_newsfeed_cardBottom {
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 3%;
+  padding-right: 3%;
   padding-bottom: 2%;
   height: 180px;
   position: relative;
@@ -160,15 +169,23 @@
   text-overflow: ellipsis;
 }
 
+.admin_cardText_title {
+  text-align: left;
+  margin-top: 1%;
+  margin-bottom: 0;
+  color: #3D4D65;
+}
+
 .admin_cardText_text {
   text-align: justify;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+  color: #3D4D65;
 }
 
 .admin_cardTex_readMore {
   position: absolute;
-  right: 1%;
-  padding-top: 1%;
+  right: 3%;
+  padding-top: 2%;
 }

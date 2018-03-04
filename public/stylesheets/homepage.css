@@ -239,12 +239,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 4%;
+  padding-left: 3%;
 }
 
 .home_cardTop_authorPic img {
   border-radius: 50%;
-  width: 40px;
+  width: 30px;
   margin-top: 10%;
   margin-bottom: 10%;
 }
@@ -258,7 +258,7 @@ body {
 .home_cardTop_infos_authorName {
   font-family: 'Sedgwick Ave Display', cursive, sans-serif;
   color: white;
-  font-size: 25px;
+  font-size: 20px;
   text-decoration: none;
   text-align: left;
   margin-left: 15%;
@@ -275,8 +275,8 @@ body {
 }
 
 .home_newsfeed_cardBottom {
-  padding-left: 4%;
-  padding-right: 4%;
+  padding-left: 3%;
+  padding-right: 3%;
   padding-bottom: 2%;
   height: 180px;
   position: relative;
@@ -306,6 +306,6 @@ body {
 
 .home_cardTex_readMore {
   position: absolute;
-  right: 4%;
+  right: 3%;
   padding-top: 2%;
 }
