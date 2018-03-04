@@ -1,6 +1,6 @@
-body {
+/* body {
   margin: 0;
-}
+} */
 
 /* STORY HEADER */
 
@@ -69,9 +69,10 @@ body {
 /* NEWSFEED */
 
 #author_newsfeed {
-  /* display: inline-block; */
+  display: inline-block;
   font-size: 0;
   padding: 1%;
+  text-align: center;
 }
 
 .author_newsfeed_card {
@@ -81,11 +82,12 @@ body {
   border-style: solid;
   border-top: 0;
   border-radius: 1%;
-  width: 48%;
+  width: 47%;
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
   margin: 1%;
+  background-color: #FFF;
 }
 
 .author_newsfeed_cardTop {
@@ -102,42 +104,51 @@ body {
   background-color: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
-  padding-left: 1%;
+  justify-content: flex-start;
+  padding-left: 4%;
 }
 
 .author_cardTop_authorPic {
   border-radius: 50%;
-  width: 6%;
+  width: 40px;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
-.author_cardTop_infos {
+/* .author_cardTop_infos {
   display: flex;
   flex-direction: column;
   margin-left: 1%;
-}
+} */
 
 .author_cardTop_infos_authorName {
   font-family: 'Sedgwick Ave Display', cursive, sans-serif;
   color: white;
-  font-size: 20px;
-  margin-top: 0;
-  margin-bottom: 0;
+  font-size: 25px;
+  text-decoration: none;
+  text-align: left;
+  margin-left: 15%;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .author_cardTop_infos_storyDate {
   font-family: 'Open sans', cursive, sans-serif;
-  color: white;
+  text-align: left;
+  font-style: italic;
+  color: #54657E;
   font-size: 14px;
-  margin-top: 0;
+  margin-top: 4%;
   margin-bottom: 0;
 }
 
 .author_newsfeed_cardBottom {
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 4%;
+  padding-right: 4%;
   padding-bottom: 2%;
   height: 180px;
   position: relative;
+  font-family: 'Open sans', cursive, sans-serif;
 }
 
 .author_div_cardText_text {
@@ -146,15 +157,23 @@ body {
   text-overflow: ellipsis;
 }
 
+.author_cardText_title {
+  text-align: left;
+  margin-top: 1%;
+  margin-bottom: 0;
+  color: #3D4D65;
+}
+
 .author_cardText_text {
   text-align: justify;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+  color: #3D4D65;
 }
 
 .author_cardTex_readMore {
   position: absolute;
-  right: 1%;
-  padding-top: 1%;
+  right: 4%;
+  padding-top: 2%;
 }

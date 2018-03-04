@@ -11,8 +11,8 @@
   <h2 class="admin_name"><%= user.username %></h2>
   <a href="/admin/newstory"><img src="/images/elements/add_a_story_button.svg"></a>
   <div class="admin_div_social_media">
-    <% if (user.fb) { %>
-      <a href="<%=user.fb%>" target="_blank">
+    <% if (user.facebook) { %>
+      <a href="<%=user.facebook%>" target="_blank">
         <img class="admin_social_media_icons" src="/images/elements/facebook_icon.svg"/>
       </a>
     <% } %>
@@ -21,13 +21,13 @@
         <img class="admin_social_media_icons" src="/images/elements/twitter_icon.svg"/>
       </a>
     <% } %>
-    <% if (user.insta) { %>
-      <a href="<%=user.insta%>" target="_blank">
+    <% if (user.instagram) { %>
+      <a href="<%=user.instagram%>" target="_blank">
         <img class="admin_social_media_icons" src="/images/elements/instagram_icon.svg"/>
       </a>
     <% } %>
-    <% if (user.blog) { %>
-      <a href="<%=user.blog%>" target="_blank">
+    <% if (user.website) { %>
+      <a href="<%=user.website%>" target="_blank">
         <img class="admin_social_media_icons" src="/images/elements/url_icon.svg"/>
       </a>
     <% } %>
@@ -55,19 +55,25 @@
     <div class="admin_newsfeed_card">
       <% if (stories[i].imgType) { %>
         <div class="admin_newsfeed_cardTop" style="background-image:url(../images/storypics/<%=stories[i].id+'.'+stories[i].imgType%>);">
+          <div class="admin_storychanges_buttons">
+            <a href="/admin/stories/<%= stories[i]._id %>" class="admin_update_button"><img src="/images/elements/admin_update_button.svg" /></a>
+            <a href="/admin/stories/<%= stories[i]._id %>/delete"><img src="/images/elements/admin_delete_button.svg" /></a>
+          </div>
       <% } else { %>
         <div class="admin_newsfeed_cardTop" style="background-image:url(../images/storypics/bg-default.jpg);">
+          <div class="admin_storychanges_buttons">
+            <a href="/admin/stories/<%= stories[i]._id %>"><img src="/images/elements/admin_update_button.svg" /></a>
+            <a href="/admin/stories/<%= stories[i]._id %>/delete"><img src="/images/elements/admin_delete_button.svg" /></a>
+          </div>
       <% } %>
         <div class="admin_cardTop_banner">
 
-          <a href="/admin/stories/<%= stories[i]._id %>/delete">Delete</a>
-          <a href="/admin/stories/<%= stories[i]._id %>">Update</a>
           <% if (stories[i].authorPicture) { %>
             <img class="admin_cardTop_authorPic" src="/images/profilepics/<%=stories[i].authorPicture%>" alt="Photo user" />
           <% } else { %>
             <img class="admin_cardTop_authorPic" src="/images/profilepics/default.jpg" alt="Photo user" />
           <% } %>
-          
+
           <div class="admin_cardTop_infos">
             <p class="admin_cardTop_infos_authorName"><%= stories[i].authorName %></p>
             <p class="admin_cardTop_infos_storyDate"><%= moment(stories[i].createdAt).format('DD-MM-YYYY') %></p>

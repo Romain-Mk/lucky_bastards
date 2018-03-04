@@ -11,17 +11,33 @@
 
 <div id="admin_profile_info_body">
 
-  <form action="/admin/account" method="post" encType="multipart/form-data">
+  <form action="/admin/account" method="post" encType="multipart/form-data" id="formAccount">
     <input type="hidden" name="profilepic_hidden" value="<%= user.picture %>">
-    <input type="file" name="profilepic"><br/>
-    <input type="text" name="facebook" value="<%= user.facebook %>" placeholder="Your Facebook URL">
-    <input type="text" name="twitter" value="<%= user.twitter %>" placeholder="Your Twitter URL">
-    <input type="text" name="instagram" value="<%= user.instagram %>" placeholder="Your Instagram URL">
-    <input type="text" name="website" value="<%= user.website %>" placeholder="Your website URL">
-    <input type="submit" name="submit" value="Update my account">
+    <div class="change_Profile_Picture">
+      <label>Change Profile Picture</label>
+      <input type="file" name="profilepic" class="inputProfilePic">
+    </div>
+    <div>
+      <label class="picto_reseaux" name="facebook"><img src="/images/elements/facebook_icon.svg" alt="Facebook icon"></label>
+      <input type="text" name="facebook" class="input_reseaux" value="<%= user.facebook %>" placeholder="Your Facebook URL">
+    </div>
+    <div>
+      <label class="picto_reseaux" name="twitter"><img src="/images/elements/twitter_icon.svg" alt="Twitter icon"></label>
+      <input type="text" name="twitter" class="input_reseaux" value="<%= user.twitter %>" placeholder="Your Twitter URL">
+    </div>
+    <div>
+      <label class="picto_reseaux" name="instagram"><img src="/images/elements/instagram_icon.svg" alt="Instagram icon"></label>
+      <input type="text" name="instagram" class="input_reseaux" value="<%= user.instagram %>" placeholder="Your Instagram URL">
+    </div>
+    <div>
+      <label class="picto_reseaux" name="website"><img src="/images/elements/url_icon.svg" alt="Website icon"></label>
+      <input type="text" name="website" class="input_reseaux" value="<%= user.website %>" placeholder="Your website URL">
+    </div>
+    <input type="submit" name="submit" value="Update my account" class="validateAccount">
+    <a href="/admin/account/delete" class="deleteAccount">Delete account</a>
+
   </form>
 
-  <a href="/admin/account/delete">Delete account</a>
 
 </div>
 

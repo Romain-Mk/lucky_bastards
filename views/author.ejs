@@ -7,10 +7,10 @@
     <img class="author_profile_picture" src="/images/profilepics/default.jpg" alt="Photo user" />
   <% } %>
   <h2 class="author_name"><%= user.username %></h2>
-  <img src="/images/elements/add_as_favorite_author_button.svg"/>
+  <!-- <img src="/images/elements/add_as_favorite_author_button.svg"/> -->
   <div class="author_div_social_media">
-    <% if (user.fb) { %>
-      <a href="<%=user.fb%>" target="_blank">
+    <% if (user.facebook) { %>
+      <a href="<%=user.facebook%>" target="_blank">
         <img class="author_social_media_icons" src="/images/elements/facebook_icon.svg"/>
       </a>
     <% } %>
@@ -19,13 +19,13 @@
         <img class="author_social_media_icons" src="/images/elements/twitter_icon.svg"/>
       </a>
     <% } %>
-    <% if (user.insta) { %>
-      <a href="<%=user.insta%>" target="_blank">
+    <% if (user.instagram) { %>
+      <a href="<%=user.instagram%>" target="_blank">
         <img class="author_social_media_icons" src="/images/elements/instagram_icon.svg"/>
       </a>
     <% } %>
-    <% if (user.blog) { %>
-      <a href="<%=user.blog%>" target="_blank">
+    <% if (user.website) { %>
+      <a href="<%=user.website%>" target="_blank">
         <img class="author_social_media_icons" src="/images/elements/url_icon.svg"/>
       </a>
     <% } %>
@@ -67,13 +67,13 @@
 
           <div class="author_cardTop_infos">
             <p class="author_cardTop_infos_authorName"><%= stories[i].authorName %></p>
-            <p class="author_cardTop_infos_storyDate"><%= moment(stories[i].createdAt).format('DD-MM-YYYY') %></p>
           </div>
         </div>
 
       </div>
 
       <div class="author_newsfeed_cardBottom">
+        <p class="author_cardTop_infos_storyDate"><%= moment(stories[i].createdAt).format('DD-MM-YYYY') %></p>
         <h3 class="author_cardText_title"><%=stories[i].title%></h3>
         <div class="author_div_cardText_text">
           <p class="author_cardText_text"><%=stories[i].text%></p>

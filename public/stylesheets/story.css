@@ -1,6 +1,6 @@
-body {
+/* body {
   margin: 0;
-}
+} */
 
 /* STORY HEADER */
 
@@ -89,6 +89,7 @@ body {
 #story_text {
   font-family: 'Open sans', cursive, sans-serif;
   color: #3D4D65;
+  white-space: pre-wrap;
 }
 
 /* #side_menu {
