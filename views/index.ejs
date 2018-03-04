@@ -19,10 +19,6 @@
   <% } else { %>
     <a href="/login/addbutton"><img src="/images/elements/add_a_story_button.svg"></a>
   <% } %>
-  <!-- <h3>MOST RECENT</h3>
-  <h3>MOST POPULAR</h3>
-  <h3>FAVORITE AUTHORS</h3>
-  <img src="/images/elements/loupe_icon.svg"> -->
 </div>
 
 <!-- <div id="filters_navbar">
@@ -43,7 +39,6 @@
 
     <div class="home_newsfeed_card">
 
-
     <% if (stories[i].imgType) { %>
       <div class="home_newsfeed_cardTop" style="background-image:url(../images/storypics/<%=stories[i].id+'.'+stories[i].imgType%>);">
     <% } else { %>
@@ -62,13 +57,13 @@
 
           <div class="home_cardTop_infos">
             <a href="authors/<%= stories[i].authorId %>" class="home_cardTop_infos_authorName"><%= stories[i].authorName %></a>
-            <p class="home_cardTop_infos_storyDate"><%= moment(stories[i].createdAt).format('DD-MM-YYYY') %></p>
 
           </div>
         </div>
       </div>
 
       <div class="home_newsfeed_cardBottom">
+        <p class="home_cardTop_infos_storyDate"><%= moment(stories[i].createdAt).format('MM-DD-YYYY') %></p>
         <h3 class="home_cardText_title"><%=stories[i].title%></h3>
         <div class="home_div_cardText_text">
           <p class="home_cardText_text"><%=stories[i].text%></p>

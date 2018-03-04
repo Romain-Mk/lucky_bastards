@@ -1,7 +1,7 @@
-body {
+/* body {
   margin: 0;
   font-family: 'Open sans', cursive, sans-serif;
-}
+} */
 
 #account_header {
   background-image: url("/images/volkswagen-569315_1920.jpg");
@@ -37,6 +37,7 @@ body {
   margin-bottom : 10px;
   font-size : 16px;
   font-weight : bold;
+  font-family: 'Open sans', cursive, sans-serif;
 }
 
 
@@ -72,8 +73,10 @@ margin-right : 20px;
   height : 40px;
   text-align: center;
   border-radius : 8px;
-  border : 1px solid #D6D6D6;
+  border : 2px solid #D6D6D6;
+  border-color: rgb(173, 113, 72);
   margin-bottom : 30px;
+  margin-top: 20px;
 
 
 }
@@ -81,15 +84,17 @@ margin-right : 20px;
 .deleteAccount {
   height : 20px;
   border : 1px solid #D6D6D6;
- color: #F6F6F6;
-  background-color : rgb(173, 113, 72);
+  color: #F6F6F6;
+  background-color : #FF4A5D;
   text-decoration: none;
-  margin-top : 30px;
+  margin-top : 60px;
   cursor : pointer;
   padding : 10px;
   font-size : 14px;
   border-radius : 5px;
   font-weight : bold;
+  font-family: 'Open sans', cursive, sans-serif;
+  text-align: center;
 }
 /*
 #admin_user_info {

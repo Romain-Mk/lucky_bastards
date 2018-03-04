@@ -1,6 +1,6 @@
-body {
+/* body {
   margin: 0;
-}
+} */
 
 /* STORY HEADER */
 
@@ -151,6 +151,7 @@ body {
   padding-bottom: 2%;
   height: 180px;
   position: relative;
+  font-family: 'Open sans', cursive, sans-serif;
 }
 
 .admin_div_cardText_text {
