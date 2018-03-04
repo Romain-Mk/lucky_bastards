@@ -76,12 +76,12 @@
 
           <div class="admin_cardTop_infos">
             <p class="admin_cardTop_infos_authorName"><%= stories[i].authorName %></p>
-            <p class="admin_cardTop_infos_storyDate"><%= moment(stories[i].createdAt).format('DD-MM-YYYY') %></p>
           </div>
         </div>
       </div>
 
       <div class="admin_newsfeed_cardBottom">
+        <p class="admin_cardTop_infos_storyDate"><%= moment(stories[i].createdAt).format('DD-MM-YYYY') %></p>
         <h3 class="admin_cardText_title"><%=stories[i].title%></h3>
         <div class="admin_div_cardText_text">
           <p class="admin_cardText_text"><%=stories[i].text%></p>
